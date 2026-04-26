@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Hot Rod Pizza A-Go-Go · Order via WhatsApp</title>
+    <!-- Google Fonts + simple reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fef7e8;
+            font-family: 'Inter', sans-serif;
+            color: #2c2418;
+            line-height: 1.4;
+        }
+
+        /* NO global navigation — landing page purity */
+        .landing {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 1.2rem 3rem;
+        }
+
+        /* FLYER / HERO SECTION (vintage hot rod vibe) */
+        .flyer-hero {
+            background: linear-gradient(145deg, #1f1a10 0%, #2f2618 100%);
+            border-radius: 2rem;
+            padding: 2rem 2rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+            border: 1px solid #e6b422;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flyer-hero::before {
+            content: "⚡";
+            font-size: 140px;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            opacity: 0.1;
+            pointer-events: none;
+            transform: rotate(-10deg);
+        }
+
+        .hotrod-badge {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .flame-icon {
+            font-size: 2rem;
+            letter-spacing: 4px;
+        }
+
+        .tagline {
+            background: #e6b422;
+            padding: 0.3rem 1rem;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            color: #1f1a10;
+            text-transform: uppercase;
+        }
+
+        .flyer-hero h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: 4rem;
+            letter-spacing: 2px;
+            color: #ffcf4a;
+            text-shadow: 3px 3px 0 #a53f00;
+            margin: 0.5rem 0 0.5rem;
+            line-height: 1.1;
+        }
+
+        .flyer-hero h1 span {
+            color: #ffffff;
+            text-shadow: 2px 2px 0 #b64508;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #f5e2b0;
+            margin-bottom: 1.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hero-sub i {
+            margin-right: 6px;
+            color: #ffb347;
+        }
+
+        /* CTA BUTTONS (WhatsApp + Text) */
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.15s, background 0.2s;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            border: none;
+        }
+
+        .btn-wa:hover {
+            background: #20b859;
+            transform: scale(1.02);
+        }
+
+        .btn-text {
+            background: #1e2f3f;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.15s;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+
+        .btn-text:hover {
+            background: #0f1e2b;
+            transform: scale(1.02);
+        }
+
+        /* MENU SECTION — digital flyer style */
+        .menu-section {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            margin: 2rem 0 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #ffdd99;
+        }
+
+        .section-title {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #3b2a1f;
+        }
+
+        .menu-intro {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #6b4c2c;
+            font-weight: 500;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-category h3 {
+            font-size: 1.8rem;
+            border-left: 6px solid #e6b422;
+            padding-left: 0.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px dashed #eedbb5;
+        }
+
+        .item-name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .item-price {
+            font-weight: 800;
+            color: #c95a0f;
+        }
+
+        .item-desc {
+            font-size: 0.8rem;
+            color: #6f5a3e;
+            margin-top: 0.2rem;
+        }
+
+        .specials {
+            background: #fff3e0;
+            border-radius: 1.2rem;
+            padding: 1.2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid #ffda99;
+        }
+
+        .specials p {
+            font-weight: 600;
+        }
+
+        /* event / social proof (fairs & festivals) */
+        .event-booking {
+            background: #f5ede1;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .event-booking h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.2rem 0 1rem;
+        }
+
+        .social-links a {
+            color: #3b2a1f;
+            font-size: 1.8rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #d95c14;
+        }
+
+        .footer-booking {
+            font-size: 0.8rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .flyer-hero h1 {
+                font-size: 2.6rem;
+            }
+            .btn-wa, .btn-text {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="landing">
+    <!-- HOT ROD FLYER STYLE HERO (digital flyer, no distractions) -->
+    <div class="flyer-hero">
+        <div class="hotrod-badge">
+            <div class="flame-icon">
+                <i class="fas fa-fire"></i><i class="fas fa-fire"></i>
+            </div>
+            <div class="tagline">🔥 CRUISE-IN & PIZZA 🔥</div>
+        </div>
+        <h1>HOT ROD <span>PIZZA</span><br>A-GO-GO</h1>
+        <div class="hero-sub">
+            <span><i class="fas fa-location-dot"></i> Rolling across fairs, festivals & car shows</span>
+            <span><i class="fas fa-clock"></i> Fri–Sun: 11AM – 9PM</span>
+        </div>
+        <div class="cta-row">
+            <a href="https://wa.me/15555551234?text=Hello!%20I%20want%20to%20order%20Hot%20Rod%20Pizza%20A-Go-Go%20%F0%9F%8D%95%F0%9F%94%A5" 
+               class="btn-wa" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp fa-lg"></i> ORDER ON WHATSAPP
+            </a>
+            <a href="sms:+15555551234?body=Hot%20Rod%20Pizza%20Order%3A%20I%27d%20like%20to%20place%20an%20order%20for%20pickup" 
+               class="btn-text" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-sms"></i> TEXT TO ORDER
+            </a>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7; color:#ffdd99;">
+            <i class="fas fa-mobile-alt"></i> Click & chat — instant pizza cravings!
+        </div>
+    </div>
+
+    <!-- MENU SECTION (main offer, like a flyer menu) -->
+    <div class="menu-section">
+        <div class="section-title">⚡ THE MENU ⚡</div>
+        <div class="menu-intro">Hand-tossed · Detroit & NY style · 12" & 16" available</div>
+
+        <div class="menu-grid">
+            <!-- classic pizzas -->
+            <div class="menu-category">
+                <h3><i class="fas fa-pizza-slice"></i> Red Classics</h3>
+                <div class="menu-item"><span class="item-name">🔥 Rod's Margherita</span><span class="item-price">$14</span></div>
+                <div class="item-desc">San Marzano, fresh mozz, basil, EVOO</div>
+                <div class="menu-item"><span class="item-name">Pepperoni Hot Rod</span><span class="item-price">$16</span></div>
+                <div class="item-desc">Double pepperoni, spicy honey</div>
+                <div class="menu-item"><span class="item-name">Sausage & 'Shroom</span><span class="item-price">$17</span></div>
+                <div class="item-desc">Fennel sausage, cremini, garlic</div>
+                <div class="menu-item"><span class="item-name">The '49 Merc</span><span class="item-price">$19</span></div>
+                <div class="item-desc">Meatball, ricotta, calabrian chili</div>
+            </div>
+            <!-- white / specialty -->
+            <div class="menu-category">
+                <h3><i class="fas fa-car"></i> Gearhead Specials</h3>
+                <div class="menu-item"><span class="item-name">White Lightning</span><span class="item-price">$15</span></div>
+                <div class="item-desc">Garlic cream, mozz, parm, arugula</div>
+                <div class="menu-item"><span class="item-name">BBQ Chicken Cruiser</span><span class="item-price">$18</span></div>
+                <div class="item-desc">Smoky BBQ, red onion, cilantro</div>
+                <div class="menu-item"><span class="item-name">Dragstrip Veggie</span><span class="item-price">$16</span></div>
+                <div class="item-desc">Zucchini, bell pep, olives, oregano</div>
+                <div class="menu-item"><span class="item-name">"Cheesus" Rod</span><span class="item-price">$14</span></div>
+                <div class="item-desc">Four cheese blend + grana padano</div>
+            </div>
+            <!-- sides & sweets -->
+            <div class="menu-category">
+                <h3><i class="fas fa-french-fries"></i> Pit Stop Sides</h3>
+                <div class="menu-item"><span class="item-name">Garlic Knots (6pc)</span><span class="item-price">$6</span></div>
+                <div class="menu-item"><span class="item-name">Crazy Breadsticks</span><span class="item-price">$5</span></div>
+                <div class="menu-item"><span class="item-name">Meatball Sliders (2)</span><span class="item-price">$7</span></div>
+                <div class="menu-item"><span class="item-name">Cinnamon Dough Drops</span><span class="item-price">$6</span></div>
+                <div class="menu-item"><span class="item-name">House-Made Ranch</span><span class="item-price">$1</span></div>
+            </div>
+        </div>
+
+        <div class="specials">
+            <p><i class="fas fa-tachometer-alt"></i> EVENT SPECIAL: buy any 16" pizza + get free crazy bread! <i class="fas fa-music"></i></p>
+            <p style="font-size:0.85rem; margin-top:6px;">Valid at festivals & car meets — show this page</p>
+        </div>
+    </div>
+
+    <!-- direct call to book for EVENTS / FAIRS / FESTIVALS (social + booking) -->
+    <div class="event-booking">
+        <h3><i class="fas fa-calendar-alt"></i> BOOK HOT ROD PIZZA A‑GO‑GO</h3>
+        <p style="margin-bottom: 0.6rem;">We roll to <strong>fairs, car shows, music festivals, and private parties</strong>.<br> 
+        Get the vintage pizza trailer experience at your next event.</p>
+        <div class="cta-row" style="justify-content: center; margin: 1.5rem 0;">
+            <a href="https://wa.me/15555551234?text=I'd%20like%20to%20book%20Hot%20Rod%20Pizza%20for%20an%20EVENT%20%F0%9F%8D%95%20(Date%3A%20...)" 
+               class="btn-wa" style="background:#c95a0f;" target="_blank">
+                <i class="fab fa-whatsapp"></i> BOOK VIA WHATSAPP
+            </a>
+            <a href="sms:+15555551234?body=Hi!%20I'm%20interested%20in%20booking%20Hot%20Rod%20Pizza%20A-Go-Go%20for%20a%20festival/fair.%20Please%20share%20availability." 
+               class="btn-text" style="background:#52341c;">
+                <i class="fas fa-sms"></i> TEXT FOR BOOKING
+            </a>
+        </div>
+        <!-- social media handles for events, fairs, festivals -->
+        <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" aria-label="X"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p style="font-weight: 500;"><i class="fas fa-hashtag"></i> #HotRodPizzaGoGo · rolling + dough · follow for event schedule</p>
+        <div class="footer-booking">
+            📍 Based in USA | trailer serves 200+ slices/hour | fully licensed & insured
+        </div>
+    </div>
+
+    <!-- no footer nav, just a tiny note (landing page focus) -->
+    <div style="text-align: center; margin-top: 2.2rem; font-size: 0.7rem; color:#9a896f;">
+        ⚡ Click WhatsApp or Text to order instantly — no apps needed ⚡
+    </div>
+</div>
+
+<!-- optional: replace the placeholder phone number with your own real number for WA & SMS -->
+<script>
+    // optional micro-interaction: ensure all WhatsApp/SMS links use your actual business number.
+    // To update the number globally, just change the 15555551234 inside the href attributes to your real #.
+    // This script dynamically replaces the demo number (if you prefer centralized control)
+    (function() {
+        // REPLACE "15555551234" with YOUR REAL BUSINESS PHONE NUMBER (including country code, no plus)
+        const YOUR_PHONE = "15555551234";   // <--- CHANGE THIS TO YOUR ACTUAL NUMBER (e.g. 14155551234)
+        const allWaLinks = document.querySelectorAll('a[href*="wa.me"]');
+        const allSmsLinks = document.querySelectorAll('a[href^="sms:"]');
+        allWaLinks.forEach(link => {
+            let oldHref = link.getAttribute('href');
+            if (oldHref.includes('15555551234')) {
+                link.setAttribute('href', oldHref.replace(/15555551234/g, YOUR_PHONE));
+            }
+        });
+        allSmsLinks.forEach(link => {
+            let oldSms = link.getAttribute('href');
+            if (oldSms.includes('15555551234')) {
+                link.setAttribute('href', oldSms.replace(/15555551234/g, YOUR_PHONE));
+            }
+        });
+        // also for any plain text number in booking CTA's dynamic replacement
+    })();
+</script>
+</body>
+</html>
