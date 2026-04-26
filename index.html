@@ -20,31 +20,40 @@
             line-height: 1.5;
         }
 
-        /* LANDING PAGE - no navigation menus, single focus */
         .landing {
             max-width: 1300px;
             margin: 0 auto;
             padding: 1.5rem 1.5rem 3rem;
         }
 
-        /* ===== HERO SECTION ===== */
+        /* HERO SECTION with REAL TRAILER IMAGE */
         .hero {
             background: linear-gradient(135deg, #1a1208 0%, #2d2416 100%);
             border-radius: 2rem;
-            padding: 3rem 2.5rem;
+            padding: 2.5rem;
             margin-bottom: 2.5rem;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .hero::before {
-            content: "🍕 🔥 🚚";
-            font-size: 180px;
-            position: absolute;
-            bottom: -30px;
-            right: -20px;
-            opacity: 0.06;
-            pointer-events: none;
+        .hero-content {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 1.2rem;
+            border: 3px solid #ffcf4a;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            object-fit: cover;
         }
 
         .badge {
@@ -61,7 +70,7 @@
 
         .hero h1 {
             font-family: 'Anton', sans-serif;
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             letter-spacing: 2px;
             color: #ffcf4a;
             text-shadow: 3px 3px 0 #a53f00;
@@ -74,27 +83,25 @@
         }
 
         .hero-tagline {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #f5e2b0;
             margin-bottom: 1rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .hero-tagline i {
-            margin-right: 8px;
+            margin-right: 6px;
             color: #ffb347;
         }
 
         .hero-desc {
-            max-width: 550px;
             color: #e2d5b6;
-            margin: 1.2rem 0 1.8rem;
-            font-size: 1rem;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.95rem;
         }
 
-        /* CTA Buttons */
         .cta-group {
             display: flex;
             flex-wrap: wrap;
@@ -105,11 +112,11 @@
         .btn-primary {
             background: #d95c14;
             color: white;
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -126,11 +133,11 @@
         .btn-wa {
             background: #25D366;
             color: white;
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -146,7 +153,7 @@
             background: transparent;
             border: 2px solid #ffcf4a;
             color: #ffcf4a;
-            padding: 1rem 2rem;
+            padding: 0.9rem 1.8rem;
             border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
@@ -161,7 +168,7 @@
             transform: scale(1.02);
         }
 
-        /* ===== TRAILER SHOWCASE ===== */
+        /* TRAILER FEATURES */
         .showcase {
             display: flex;
             flex-wrap: wrap;
@@ -172,29 +179,6 @@
             margin-bottom: 2.5rem;
             box-shadow: 0 8px 20px rgba(0,0,0,0.05);
             border: 1px solid #f0e4d0;
-        }
-
-        .trailer-images {
-            flex: 1;
-            background: linear-gradient(145deg, #e8ddcc, #fcf5e8);
-            border-radius: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 2rem;
-            min-height: 280px;
-        }
-
-        .trailer-images i {
-            font-size: 5rem;
-            color: #bc6c25;
-            margin: 0.5rem;
-        }
-
-        .trailer-icon-row {
-            font-size: 3rem;
-            letter-spacing: 10px;
         }
 
         .trailer-features {
@@ -223,7 +207,7 @@
             width: 24px;
         }
 
-        /* ===== BOOKING FORM SECTION ===== */
+        /* BOOKING FORM */
         .booking-section {
             background: white;
             border-radius: 1.8rem;
@@ -235,7 +219,7 @@
 
         .section-title {
             font-family: 'Anton', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             text-align: center;
             margin-bottom: 0.5rem;
         }
@@ -287,7 +271,7 @@
             margin-top: 1rem;
         }
 
-        /* ===== MENU PREVIEW ===== */
+        /* MENU PREVIEW */
         .menu-preview {
             background: #fff9ef;
             border-radius: 1.5rem;
@@ -303,7 +287,7 @@
         }
 
         .menu-cat h4 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             border-left: 4px solid #e6b422;
             padding-left: 0.8rem;
             margin-bottom: 1rem;
@@ -316,7 +300,7 @@
             border-bottom: 1px dashed #eedbb5;
         }
 
-        /* ===== SOCIAL + EVENT INFO ===== */
+        /* SOCIAL SECTION */
         .social-booking {
             background: #2d2416;
             color: white;
@@ -351,49 +335,46 @@
         }
 
         @media (max-width: 750px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.4rem; }
             .form-grid { grid-template-columns: 1fr; }
             .form-field.full-width { grid-column: span 1; }
             .booking-submit { grid-column: span 1; }
-            .hero { padding: 2rem 1.5rem; }
+            .hero { padding: 1.8rem; }
         }
     </style>
 </head>
 <body>
 <div class="landing">
 
-    <!-- HERO SECTION - trailer intro + booking CTA -->
+    <!-- HERO SECTION with YOUR ACTUAL TRAILER IMAGE -->
     <div class="hero">
-        <div class="badge">🔥 AVAILABLE FOR EVENTS 🔥</div>
-        <h1>HOT ROD <span>PIZZA</span><br>A-GO-GO</h1>
-        <div class="hero-tagline">
-            <span><i class="fas fa-truck-food"></i> Mobile Pizza Trailer</span>
-            <span><i class="fas fa-calendar-check"></i> Book for Fairs, Festivals & Private Events</span>
+        <div class="hero-content">
+            <div class="badge">🔥 AVAILABLE FOR EVENTS 🔥</div>
+            <h1>HOT ROD <span>PIZZA</span><br>A-GO-GO</h1>
+            <div class="hero-tagline">
+                <span><i class="fas fa-truck-food"></i> Mobile Pizza Trailer</span>
+                <span><i class="fas fa-calendar-check"></i> Book for Fairs, Festivals & Private Events</span>
+            </div>
+            <div class="hero-desc">
+                🍕 Wood-fired pizza, vintage hot rod vibes, fully equipped mobile kitchen. 
+                We bring the party to YOUR event!
+            </div>
+            <div class="cta-group">
+                <a href="#booking-form" class="btn-primary"><i class="fas fa-calendar-plus"></i> BOOK NOW</a>
+                <a href="https://wa.me/15555551234?text=Hello!%20I%20want%20to%20book%20Hot%20Rod%20Pizza%20trailer%20for%20my%20event" 
+                   class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WHATSAPP BOOKING</a>
+                <a href="sms:+15555551234?body=Hi!%20I'm%20interested%20in%20booking%20Hot%20Rod%20Pizza%20trailer%20for%20an%20event" 
+                   class="btn-outline"><i class="fas fa-sms"></i> TEXT US</a>
+            </div>
         </div>
-        <div class="hero-desc">
-            🍕 Wood-fired pizza, vintage hot rod vibes, fully equipped mobile kitchen. 
-            We bring the party to YOUR event!
-        </div>
-        <div class="cta-group">
-            <a href="#booking-form" class="btn-primary"><i class="fas fa-calendar-plus"></i> BOOK NOW</a>
-            <a href="https://wa.me/15555551234?text=Hello!%20I%20want%20to%20book%20Hot%20Rod%20Pizza%20trailer%20for%20my%20event" 
-               class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WHATSAPP BOOKING</a>
-            <a href="sms:+15555551234?body=Hi!%20I'm%20interested%20in%20booking%20Hot%20Rod%20Pizza%20trailer%20for%20an%20event" 
-               class="btn-outline"><i class="fas fa-sms"></i> TEXT US</a>
+        <div class="hero-image">
+            <img src="https://i.postimg.cc/xJ1kw9jQ/Whats-App-Image-2026-04-26-at-5-19-27-AM.jpg" 
+                 alt="Hot Rod Pizza A-Go-Go Food Trailer - available for events, fairs and festivals">
         </div>
     </div>
 
-    <!-- TRAILER SHOWCASE / INFO -->
+    <!-- TRAILER FEATURES -->
     <div class="showcase">
-        <div class="trailer-images">
-            <div class="trailer-icon-row">
-                <i class="fas fa-pizza-slice"></i>
-                <i class="fas fa-truck"></i>
-                <i class="fas fa-fire"></i>
-            </div>
-            <i class="fas fa-oven" style="font-size: 3rem;"></i>
-            <p style="margin-top: 1rem; font-weight: 600;">Vintage Hot Rod Food Trailer</p>
-        </div>
         <div class="trailer-features">
             <h3><i class="fas fa-star-of-life"></i> Why Book Our Trailer?</h3>
             <ul class="feature-list">
@@ -407,7 +388,7 @@
         </div>
     </div>
 
-    <!-- BOOKING FORM - Main lead capture for events -->
+    <!-- BOOKING FORM -->
     <div class="booking-section" id="booking-form">
         <div class="section-title">📋 BOOK THE TRAILER</div>
         <div class="section-sub">Fill the form or reach us on WhatsApp — we'll confirm availability within 2hrs</div>
@@ -470,7 +451,7 @@
         </p>
     </div>
 
-    <!-- MENU PREVIEW (so bookers know what's offered) -->
+    <!-- MENU PREVIEW -->
     <div class="menu-preview">
         <div class="section-title" style="font-size: 1.6rem;">🍕 OUR MENU (Sample)</div>
         <div class="menu-grid">
@@ -497,7 +478,7 @@
         <p class="section-sub" style="margin-top: 1rem;">* Custom menus available for private events</p>
     </div>
 
-    <!-- SOCIAL MEDIA + EVENT BOOKING INFO -->
+    <!-- SOCIAL MEDIA + EVENT INFO -->
     <div class="social-booking">
         <h3><i class="fas fa-hashtag"></i> FOLLOW US FOR EVENT UPDATES</h3>
         <p>We attend fairs, music festivals, car shows & food truck rallies. Follow to see where we're rolling next!</p>
@@ -522,8 +503,8 @@
 </div>
 
 <script>
-    // Replace demo phone number with your real number
-    const YOUR_PHONE = "15555551234";  // <--- CHANGE THIS TO YOUR ACTUAL BUSINESS NUMBER
+    // IMPORTANT: REPLACE WITH YOUR REAL PHONE NUMBER
+    const YOUR_PHONE = "15555551234";  // <--- CHANGE THIS TO YOUR ACTUAL BUSINESS NUMBER (e.g., 923001234567)
     
     // Update all WhatsApp and SMS links
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
@@ -539,7 +520,7 @@
         }
     });
 
-    // Form submission: redirect to WhatsApp with pre-filled booking details
+    // Form submission: send booking details via WhatsApp
     const form = document.getElementById('eventBookingForm');
     if (form) {
         form.addEventListener('submit', function(e) {
