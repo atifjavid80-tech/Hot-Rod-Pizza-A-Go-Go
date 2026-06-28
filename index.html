@@ -1236,6 +1236,48 @@
             .menu-grid {
                 grid-template-columns: 1fr;
             }
+
+            /* ─── FIX MOBILE CENTERING ─── */
+            .form-grid {
+                justify-items: center;
+            }
+            .form-field {
+                align-items: center;
+                width: 100%;
+            }
+            .form-field label {
+                text-align: center;
+                width: 100%;
+            }
+            .form-field input,
+            .form-field select,
+            .form-field textarea {
+                width: 100%;
+                max-width: 450px;
+            }
+            .booking-info {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+            }
+            .booking-submit {
+                justify-content: center;
+            }
+            .btn-wa,
+            .btn-primary,
+            .btn-secondary {
+                justify-content: center;
+                width: 100%;
+                max-width: 350px;
+            }
+            .cta-group {
+                justify-content: center;
+            }
+            .cta-group .btn-wa,
+            .cta-group .btn-primary,
+            .cta-group .btn-secondary {
+                max-width: 280px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1255,6 +1297,7 @@
                 font-size: 0.85rem;
                 padding: 0.7rem 1.2rem;
                 box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+                max-width: 240px;
             }
             .card {
                 padding: 1.2rem;
@@ -1361,6 +1404,50 @@
             .btn-wa {
                 font-size: 0.85rem;
                 padding: 0.7rem 1.2rem;
+                max-width: 280px;
+            }
+
+            /* ─── FIX MOBILE CENTERING (small screens) ─── */
+            .form-grid {
+                justify-items: center;
+            }
+            .form-field {
+                align-items: center;
+                width: 100%;
+            }
+            .form-field label {
+                text-align: center;
+                width: 100%;
+            }
+            .form-field input,
+            .form-field select,
+            .form-field textarea {
+                width: 100%;
+                max-width: 380px;
+            }
+            .booking-info {
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                padding: 1rem;
+            }
+            .booking-submit {
+                justify-content: center;
+            }
+            .btn-wa,
+            .btn-primary,
+            .btn-secondary {
+                justify-content: center;
+                width: 100%;
+                max-width: 300px;
+            }
+            .cta-group {
+                justify-content: center;
+            }
+            .cta-group .btn-wa,
+            .cta-group .btn-primary,
+            .cta-group .btn-secondary {
+                max-width: 220px;
             }
         }
     </style>
@@ -1672,7 +1759,7 @@
                     </div>
                     <div class="booking-submit">
                         <button type="submit" class="btn-wa" style="font-size:1.15rem;padding:1rem 2.5rem;border:none;box-shadow:6px 6px 0 rgba(0,0,0,0.3);">
-                            <i class="fab fa-whatsapp"></i> Send Booking Request via WhatsApp
+                            <i class="fab fa-whatsapp"></i> SEND BOOKING REQUEST VIA WHATSAPP
                         </button>
                     </div>
                 </div>
