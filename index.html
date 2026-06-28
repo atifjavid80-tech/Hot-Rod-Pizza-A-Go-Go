@@ -12,12 +12,13 @@
     <meta property="og:description" content="Watch the chef craft gourmet pizzas and loaded hot dogs right before your eyes. Hand‑tossed, fired to perfection, and served fresh off our custom trike." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://hotrodpizzaagogo.com/" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Hot Rod Pizza A‑Go‑Go | Wood‑Fired Street Food on Three Wheels" />
     <meta name="twitter:description" content="Artisan pizza and loaded hot dogs fired fresh on our custom trike. Book us for your next event in Utah." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png" />
 
     <!-- Structured Data (LocalBusiness) -->
     <script type="application/ld+json">
@@ -26,7 +27,7 @@
             "@type": "LocalBusiness",
             "name": "Hot Rod Pizza A-Go-Go",
             "description": "Wood‑fired artisan pizza and loaded hot dogs served from a custom trike. Available for fairs, festivals, and private events in Utah.",
-            "image": "https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png",
+            "image": "https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Kamas",
@@ -52,6 +53,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
     <style>
+        /* ───────── ROOT VARIABLES (Brand Colors) ───────── */
+        :root {
+            --brand-red: #c62828;
+            --brand-red-dark: #8e0000;
+            --brand-yellow: #f9a825;
+            --brand-yellow-light: #ffca28;
+            --brand-black: #1a1208;
+            --brand-dark: #2d2416;
+            --brand-cream: #fef7e8;
+            --brand-white: #ffffff;
+            --brand-gold: #e6b422;
+        }
+
         /* ───────── RESET & BASE ───────── */
         * {
             margin: 0;
@@ -61,8 +75,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #fef7e8;
-            color: #2c2418;
+            background: var(--brand-cream);
+            color: var(--brand-black);
             line-height: 1.5;
         }
 
@@ -74,7 +88,7 @@
 
         /* ───────── HERO ───────── */
         .hero {
-            background: linear-gradient(135deg, #1a1208 0%, #2d2416 100%);
+            background: linear-gradient(135deg, var(--brand-black) 0%, var(--brand-dark) 100%);
             border-radius: 2rem;
             padding: 2.5rem;
             margin-bottom: 2.5rem;
@@ -92,26 +106,32 @@
         .hero-image {
             flex: 1;
             min-width: 260px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .hero-image img {
-            width: 100%;
+            max-width: 100%;
+            max-height: 280px;
             border-radius: 1.2rem;
-            border: 3px solid #ffcf4a;
+            border: 3px solid var(--brand-yellow);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            object-fit: cover;
+            object-fit: contain;
             display: block;
+            background: var(--brand-white);
+            padding: 0.5rem;
         }
 
         .badge {
-            background: #e6b422;
+            background: var(--brand-yellow);
             display: inline-block;
             padding: 0.4rem 1.2rem;
             border-radius: 40px;
             font-weight: 800;
             font-size: 0.8rem;
             letter-spacing: 1px;
-            color: #1a1208;
+            color: var(--brand-black);
             margin-bottom: 1.5rem;
         }
 
@@ -119,14 +139,14 @@
             font-family: 'Anton', sans-serif;
             font-size: 3.2rem;
             letter-spacing: 1px;
-            color: #ffcf4a;
-            text-shadow: 3px 3px 0 #a53f00;
+            color: var(--brand-yellow);
+            text-shadow: 3px 3px 0 var(--brand-red-dark);
             line-height: 1.1;
             margin-bottom: 0.5rem;
         }
 
         .hero h1 span {
-            color: white;
+            color: var(--brand-white);
         }
 
         .hero-sub {
@@ -138,7 +158,7 @@
         }
 
         .hero-sub i {
-            color: #ffb347;
+            color: var(--brand-yellow-light);
             margin-right: 4px;
         }
 
@@ -157,8 +177,8 @@
         }
 
         .btn-primary {
-            background: #d95c14;
-            color: #fff;
+            background: var(--brand-red);
+            color: var(--brand-white);
             padding: 0.9rem 1.8rem;
             border-radius: 60px;
             text-decoration: none;
@@ -173,14 +193,14 @@
         }
 
         .btn-primary:hover {
-            background: #b8470a;
+            background: var(--brand-red-dark);
             transform: scale(1.02);
         }
 
         .btn-secondary {
             background: transparent;
-            border: 2px solid #ffcf4a;
-            color: #ffcf4a;
+            border: 2px solid var(--brand-yellow);
+            color: var(--brand-yellow);
             padding: 0.9rem 1.8rem;
             border-radius: 60px;
             text-decoration: none;
@@ -193,13 +213,13 @@
         }
 
         .btn-secondary:hover {
-            background: #ffcf4a20;
+            background: rgba(249, 168, 37, 0.15);
             transform: scale(1.02);
         }
 
         .btn-wa {
             background: #25D366;
-            color: #fff;
+            color: var(--brand-white);
             padding: 0.9rem 1.8rem;
             border-radius: 60px;
             text-decoration: none;
@@ -223,6 +243,7 @@
             text-align: center;
             margin-bottom: 0.5rem;
             letter-spacing: 1px;
+            color: var(--brand-black);
         }
 
         .section-sub {
@@ -233,7 +254,7 @@
         }
 
         .card {
-            background: #fff;
+            background: var(--brand-white);
             border-radius: 1.5rem;
             padding: 2rem;
             margin-bottom: 2.5rem;
@@ -252,6 +273,7 @@
         .experience-text h3 {
             font-size: 1.6rem;
             margin-bottom: 0.75rem;
+            color: var(--brand-black);
         }
 
         .experience-text p {
@@ -262,7 +284,7 @@
         .experience-image img {
             width: 100%;
             border-radius: 1.2rem;
-            border: 2px solid #e6b422;
+            border: 2px solid var(--brand-yellow);
             object-fit: cover;
         }
 
@@ -284,13 +306,14 @@
 
         .step .step-icon {
             font-size: 2.6rem;
-            color: #d95c14;
+            color: var(--brand-red);
             margin-bottom: 0.5rem;
         }
 
         .step h4 {
             font-size: 1.2rem;
             margin-bottom: 0.4rem;
+            color: var(--brand-black);
         }
 
         .step p {
@@ -308,9 +331,10 @@
 
         .menu-cat h4 {
             font-size: 1.2rem;
-            border-left: 4px solid #e6b422;
+            border-left: 4px solid var(--brand-yellow);
             padding-left: 0.8rem;
             margin-bottom: 1rem;
+            color: var(--brand-black);
         }
 
         .menu-item {
@@ -318,6 +342,7 @@
             justify-content: space-between;
             padding: 0.4rem 0;
             border-bottom: 1px dashed #eedbb5;
+            color: var(--brand-black);
         }
 
         /* ───────── BOOKING FORM ───────── */
@@ -340,6 +365,7 @@
             font-weight: 600;
             margin-bottom: 0.4rem;
             font-size: 0.85rem;
+            color: var(--brand-black);
         }
 
         .form-field input,
@@ -350,13 +376,14 @@
             border-radius: 0.8rem;
             font-family: 'Inter', sans-serif;
             background: #fefcf8;
+            color: var(--brand-black);
         }
 
         .form-field input:focus,
         .form-field select:focus,
         .form-field textarea:focus {
             outline: none;
-            border-color: #d95c14;
+            border-color: var(--brand-red);
         }
 
         .booking-submit {
@@ -369,8 +396,8 @@
         /* ───────── QR CODE ───────── */
         .qr-section {
             text-align: center;
-            background: #2d2416;
-            color: #fff;
+            background: linear-gradient(135deg, var(--brand-black) 0%, var(--brand-dark) 100%);
+            color: var(--brand-white);
             border-radius: 1.5rem;
             padding: 2rem;
             margin-bottom: 2.5rem;
@@ -381,6 +408,7 @@
             font-size: 1.8rem;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            color: var(--brand-yellow);
         }
 
         .qr-section p {
@@ -397,9 +425,9 @@
 
         .qr-wrapper canvas,
         .qr-wrapper img {
-            border: 4px solid #ffcf4a;
+            border: 4px solid var(--brand-yellow);
             border-radius: 1rem;
-            background: #fff;
+            background: var(--brand-white);
             padding: 0.5rem;
             max-width: 200px;
             width: 100%;
@@ -408,15 +436,15 @@
 
         .qr-wrapper .qr-label {
             font-size: 0.8rem;
-            color: #ffcf4a;
+            color: var(--brand-yellow);
             letter-spacing: 1px;
             font-weight: 600;
         }
 
         /* ───────── SOCIAL & FOOTER ───────── */
         .social-footer {
-            background: #2d2416;
-            color: #fff;
+            background: linear-gradient(135deg, var(--brand-black) 0%, var(--brand-dark) 100%);
+            color: var(--brand-white);
             border-radius: 1.5rem;
             padding: 2rem;
             text-align: center;
@@ -428,6 +456,7 @@
             font-size: 1.6rem;
             letter-spacing: 1px;
             margin-bottom: 0.5rem;
+            color: var(--brand-yellow);
         }
 
         .social-footer p {
@@ -444,13 +473,13 @@
         }
 
         .social-icons a {
-            color: #ffcf4a;
+            color: var(--brand-yellow);
             font-size: 2rem;
             transition: 0.2s;
         }
 
         .social-icons a:hover {
-            color: #fff;
+            color: var(--brand-white);
             transform: scale(1.1);
         }
 
@@ -458,7 +487,7 @@
             text-align: center;
             font-size: 0.75rem;
             opacity: 0.6;
-            color: #fff;
+            color: var(--brand-white);
             padding-top: 0.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -490,12 +519,15 @@
             .qr-wrapper img {
                 max-width: 160px;
             }
+            .hero-image img {
+                max-height: 200px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 1.8rem;
-                text-shadow: 2px 2px 0 #a53f00;
+                text-shadow: 2px 2px 0 var(--brand-red-dark);
             }
             .hero-sub {
                 font-size: 0.95rem;
@@ -514,6 +546,9 @@
             }
             .social-icons a {
                 font-size: 1.6rem;
+            }
+            .hero-image img {
+                max-height: 150px;
             }
         }
     </style>
@@ -542,9 +577,9 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png"
-                alt="Hot Rod Pizza A-Go-Go custom food trike — wood‑fired pizza and hot dogs for events"
-                onerror="this.onerror=null; this.src='https://i.postimg.cc/xNP4cyD0/Gemini-Generated-Image-fuahzofuahzofuah.jpg'; this.alt='Hot Rod Pizza A-Go-Go trike'">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
+                     alt="Hot Rod Pizza A-Go-Go Logo"
+                     onerror="this.onerror=null; this.src='https://i.postimg.cc/xNP4cyD0/Gemini-Generated-Image-fuahzofuahzofuah.jpg'; this.alt='Hot Rod Pizza A-Go-Go trike'">
             </div>
         </div>
 
@@ -554,7 +589,7 @@
         <div class="card">
             <div class="experience-grid">
                 <div class="experience-text">
-                    <div class="badge" style="background:#d95c14;color:#fff;margin-bottom:0.75rem;">🍕 ARTISAN PIZZA, FIRED RIGHT HERE</div>
+                    <div class="badge" style="background:var(--brand-red);color:var(--brand-white);margin-bottom:0.75rem;">🍕 ARTISAN PIZZA, FIRED RIGHT HERE</div>
                     <h3>We're bringing the heat to the streets.</h3>
                     <p>
                         Hot Rod Pizza A‑Go‑Go isn't just a food trailer — it's an <strong>open‑air culinary show</strong>.
@@ -562,15 +597,15 @@
                         customize your toppings, and watch your meal cook in our blazing wood‑fired style oven.
                     </p>
                     <p style="color:#5a4d3a;font-size:0.95rem;">
-                        <i class="fas fa-check-circle" style="color:#d95c14;"></i> Fresh, hand‑tossed dough &nbsp;·&nbsp;
-                        <i class="fas fa-check-circle" style="color:#d95c14;"></i> Premium ingredients &nbsp;·&nbsp;
-                        <i class="fas fa-check-circle" style="color:#d95c14;"></i> Cooked to order
+                        <i class="fas fa-check-circle" style="color:var(--brand-red);"></i> Fresh, hand‑tossed dough &nbsp;·&nbsp;
+                        <i class="fas fa-check-circle" style="color:var(--brand-red);"></i> Premium ingredients &nbsp;·&nbsp;
+                        <i class="fas fa-check-circle" style="color:var(--brand-red);"></i> Cooked to order
                     </p>
                 </div>
                 <div class="experience-image">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png"
-                    alt="Chef preparing wood‑fired pizza on the Hot Rod trike"
-                    onerror="this.onerror=null; this.src='https://i.postimg.cc/xNP4cyD0/Gemini-Generated-Image-fuahzofuahzofuah.jpg'; this.alt='Hot Rod Pizza trike cooking'">
+                         alt="Chef preparing wood‑fired pizza on the Hot Rod trike"
+                         onerror="this.onerror=null; this.src='https://i.postimg.cc/xNP4cyD0/Gemini-Generated-Image-fuahzofuahzofuah.jpg'; this.alt='Hot Rod Pizza trike cooking'">
                 </div>
             </div>
         </div>
@@ -649,7 +684,7 @@
         <!-- ══════════════════════════════════════════════ -->
         <!--  BOOKING FORM                                 -->
         <!-- ══════════════════════════════════════════════ -->
-        <div class="card" id="booking-form" style="border-color:#ffcf4a;">
+        <div class="card" id="booking-form" style="border-color:var(--brand-yellow);">
             <div class="section-title" style="font-size:1.6rem;">📋 Book Us for Your Next Event!</div>
             <div class="section-sub">
                 Bring the unique Hot Rod Pizza A‑Go‑Go experience to your next festival, corporate gathering, or private party.
@@ -657,11 +692,11 @@
 
             <div style="background:#faf3e8;border-radius:1rem;padding:1rem 1.5rem;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center;">
                 <div>
-                    <i class="fas fa-map-pin" style="color:#d95c14;"></i>
+                    <i class="fas fa-map-pin" style="color:var(--brand-red);"></i>
                     <strong>Availability:</strong> Booking across <strong>Kamas</strong> and the surrounding <strong>Utah</strong> areas.
                 </div>
                 <div>
-                    <i class="fas fa-ruler-combined" style="color:#d95c14;"></i>
+                    <i class="fas fa-ruler-combined" style="color:var(--brand-red);"></i>
                     <strong>Small footprint</strong> — fits perfectly in outdoor venues and open spaces.
                 </div>
             </div>
@@ -715,7 +750,7 @@
                         <textarea rows="3" name="message" placeholder="Any special requests, timing, setup notes…"></textarea>
                     </div>
                     <div class="booking-submit">
-                        <button type="submit" class="btn-primary" style="background:#2d6a4f;font-size:1.05rem;">
+                        <button type="submit" class="btn-primary" style="background:var(--brand-red);font-size:1.05rem;">
                             <i class="fab fa-whatsapp"></i> Send Booking Request
                         </button>
                     </div>
