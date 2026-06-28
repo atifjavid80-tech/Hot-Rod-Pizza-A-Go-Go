@@ -669,10 +669,10 @@
             margin-right: 8px;
         }
 
-        /* ───────── SHOWCASE GRID ───────── */
+        /* ───────── SHOWCASE GRID — 4 IMAGES ───────── */
         .showcase-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.8rem;
             margin-top: 1.5rem;
         }
@@ -878,7 +878,7 @@
             opacity: 0.85;
         }
 
-        /* ───────── DETAILED MENU ───────── */
+        /* ───────── NEW MENU — HOT ROD DOGS + SIDES ───────── */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -895,12 +895,12 @@
         }
 
         .menu-cat:hover {
-            border-color: var(--brand-red);
-            box-shadow: 8px 8px 0 var(--brand-yellow);
+            border-color: var(--brand-yellow);
+            box-shadow: 8px 8px 0 var(--brand-red-dark);
         }
 
         .menu-cat h4 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             border-left: 5px solid var(--brand-yellow);
             padding-left: 1rem;
             margin-bottom: 1.2rem;
@@ -1207,6 +1207,12 @@
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .showcase-grid .showcase-item:nth-child(3) {
+                grid-column: span 2;
+            }
+            .showcase-grid .showcase-item:nth-child(4) {
+                grid-column: span 2;
+            }
             .hero-visual .main-media video,
             .hero-visual .main-media img {
                 max-height: 250px;
@@ -1226,6 +1232,9 @@
             }
             .about-image img {
                 max-height: 280px;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -1271,7 +1280,13 @@
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
-                gap: 1rem;
+                gap: 0.8rem;
+            }
+            .showcase-grid .showcase-item:nth-child(3) {
+                grid-column: span 2;
+            }
+            .showcase-grid .showcase-item:nth-child(4) {
+                grid-column: span 2;
             }
             .hero-visual .main-media video,
             .hero-visual .main-media img {
@@ -1325,7 +1340,7 @@
                 font-size: 1.2rem;
             }
             .menu-cat h4 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             .menu-item {
                 font-size: 0.95rem;
@@ -1358,7 +1373,7 @@
         <!-- ══════════════════════════════════════════════ -->
         <div class="hero">
             <div class="hero-content">
-                <!-- LOGO — 2X BIGGER (max-width: 400px) -->
+                <!-- LOGO — 2X BIGGER -->
                 <div class="logo-wrapper">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
                          alt="Hot Rod Pizza"
@@ -1382,7 +1397,7 @@
                     Wood‑fired pizzas, loaded hot dogs, and tasty treats — served fresh off our custom trike trailer. Fast, fun, and flavorful.
                 </div>
 
-                <!-- CTAs — ALL GREEN WHATSAPP EXCEPT "VIEW OUR MENU" -->
+                <!-- CTAs -->
                 <div class="cta-group">
                     <a href="https://wa.me/13852228100?text=Hi!%20I'd%20like%20to%20book%20Hot%20Rod%20Pizza%20for%20an%20event" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> BOOK OUR TRIKE</a>
                     <a href="#menu" class="btn-secondary"><i class="fas fa-utensils"></i> VIEW OUR MENU</a>
@@ -1454,7 +1469,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  SHOWCASE — RED BACKGROUND                   -->
+        <!--  SHOWCASE — 4 IMAGES                         -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-bg" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-white);">📸 In <span style="color:var(--brand-yellow);">Action</span></div>
@@ -1477,6 +1492,12 @@
                          alt="Hot Rod Pizza Event"
                          onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Event'">
                     <div class="showcase-label"><i class="fas fa-people-arrows"></i> Crowd Favorite</div>
+                </div>
+                <div class="showcase-item">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
+                         alt="Hot Rod Pizza Logo"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Logo'">
+                    <div class="showcase-label"><i class="fas fa-star"></i> Hot Rod Brand</div>
                 </div>
             </div>
             <div style="text-align:center;margin-top:2rem;">
@@ -1528,75 +1549,49 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  MENU — RED BACKGROUND                       -->
+        <!--  MENU — UPDATED: HOT ROD DOGS + SIDES        -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-dark" id="menu" style="border-top-color: var(--brand-yellow);">
-            <div class="section-title" style="color:var(--brand-yellow);">🍕 Menu <span style="color:var(--brand-white);">Highlights</span></div>
-            <div class="section-sub" style="color:#f5e2b0;">Wood‑fired perfection and street eats</div>
+            <div class="section-title" style="color:var(--brand-yellow);">🔥 Menu <span style="color:var(--brand-white);">Highlights</span></div>
+            <div class="section-sub" style="color:#f5e2b0;">Gourmet street eats — fresh, fired, and priced right</div>
 
-            <div class="menu-highlights">
-                <div class="highlight-card" style="background:rgba(255,255,255,0.06);border-color:#444;">
-                    <i class="fas fa-pizza-slice"></i>
-                    <h4>Wood‑Fired Pizzas</h4>
-                    <p>Hand‑stretched, artisan toppings, fired to crispy perfection.</p>
+            <div class="menu-grid">
+                <!-- HOT ROD DOGS -->
+                <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
+                    <h4>🌭 HOT ROD DOGS</h4>
+                    <div class="menu-item"><span>Classic All‑Beef Dog</span><span class="price">$9</span></div>
+                    <div class="menu-item"><span>Tailpipe Dog (with peppers &amp; onions)</span><span class="price">$11</span></div>
+                    <div class="menu-item"><span>Chili Cheese Dog</span><span class="price">$12</span></div>
+                    <div class="menu-item"><span>Build‑Your‑Own (any 2 toppings)</span><span class="price">$8</span></div>
+                    <div class="menu-tag">
+                        <i class="fas fa-plus-circle" style="color:#4CAF50;"></i> Extra toppings +$1 each
+                    </div>
                 </div>
-                <div class="highlight-card" style="background:rgba(255,255,255,0.06);border-color:#444;">
-                    <i class="fas fa-hotdog"></i>
-                    <h4>Hot Rod Dogs</h4>
-                    <p>Gourmet all‑beef dogs with specialty toppings and fire‑roasted peppers.</p>
-                </div>
-                <div class="highlight-card" style="background:rgba(255,255,255,0.06);border-color:#444;">
-                    <i class="fas fa-coffee"></i>
-                    <h4>Snacks &amp; Drinks</h4>
-                    <p>Garlic knots, breadsticks, dessert pizza, soda, and more.</p>
+
+                <!-- SIDES & DRINKS -->
+                <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
+                    <h4>🥤 SIDES &amp; DRINKS</h4>
+                    <div class="menu-item"><span>Garlic Knots</span><span class="price">$6</span></div>
+                    <div class="menu-item"><span>Crazy Breadsticks</span><span class="price">$5</span></div>
+                    <div class="menu-item"><span>Meatball Sliders</span><span class="price">$7</span></div>
+                    <div class="menu-item"><span>Dessert Pizza</span><span class="price">$8</span></div>
+                    <div class="menu-item"><span>Soda / Water</span><span class="price">$3</span></div>
+                    <div class="menu-item"><span>Italian Soda</span><span class="price">$3</span></div>
                 </div>
             </div>
 
+            <!-- TRAILER SPEC -->
             <div class="trailer-spec animate-glow">
                 <i class="fas fa-truck"></i>
                 <strong>Custom Trailer</strong> — Powered by <i class="fas fa-fire" style="color:var(--brand-yellow);"></i> Gozney Dome Gen 2
                 <span class="spec-sub">Authentic wood‑fired flavor, mobile &amp; ready to roll</span>
             </div>
 
-            <div style="margin-top:2.5rem;border-top:2px dashed #555;padding-top:2.5rem;">
-                <div class="section-title" style="font-size:2rem;color:var(--brand-yellow);">📋 Full <span style="color:var(--brand-white);">Menu</span></div>
-                <div class="section-sub" style="color:#f5e2b0;">Gourmet street eats — fresh, fired, and priced right</div>
-                <div class="menu-grid">
-                    <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
-                        <h4>🍕 Wood‑Fired Pizzas</h4>
-                        <div class="menu-item"><span>Classic Margherita</span><span class="price">$15</span></div>
-                        <div class="menu-item"><span>Pepperoni Hot Rod</span><span class="price">$16</span></div>
-                        <div class="menu-item"><span>BBQ Chicken</span><span class="price">$18</span></div>
-                        <div class="menu-item"><span>White Lightning (garlic &amp; ricotta)</span><span class="price">$17</span></div>
-                        <div class="menu-item"><span>Build‑Your‑Own (any 3 toppings)</span><span class="price">$14</span></div>
-                        <div class="menu-tag">
-                            <i class="fas fa-tag"></i> Extra toppings +$2 each
-                        </div>
-                    </div>
-                    <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
-                        <h4>🌭 Hot Rod Dogs</h4>
-                        <div class="menu-item"><span>Classic All‑Beef Dog</span><span class="price">$9</span></div>
-                        <div class="menu-item"><span>Tailpipe Dog (with peppers &amp; onions)</span><span class="price">$11</span></div>
-                        <div class="menu-item"><span>Chili Cheese Dog</span><span class="price">$12</span></div>
-                        <div class="menu-item"><span>Build‑Your‑Own (any 2 toppings)</span><span class="price">$8</span></div>
-                        <div class="menu-tag">
-                            <i class="fas fa-tag"></i> Extra toppings +$1 each
-                        </div>
-                    </div>
-                    <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
-                        <h4>🍟 Sides &amp; Drinks</h4>
-                        <div class="menu-item"><span>Garlic Knots (6 pcs)</span><span class="price">$6</span></div>
-                        <div class="menu-item"><span>Crazy Breadsticks</span><span class="price">$5</span></div>
-                        <div class="menu-item"><span>Meatball Sliders (3 pcs)</span><span class="price">$7</span></div>
-                        <div class="menu-item"><span>Dessert Pizza (cinnamon sugar)</span><span class="price">$8</span></div>
-                        <div class="menu-item"><span>Soda / Water</span><span class="price">$2</span></div>
-                        <div class="menu-item"><span>Italian Soda</span><span class="price">$3</span></div>
-                    </div>
-                </div>
-                <div class="menu-footer">
-                    <i class="fas fa-utensils"></i> Custom menus &amp; catering packages available for private events
-                </div>
+            <!-- MENU FOOTER -->
+            <div class="menu-footer">
+                <i class="fas fa-lock"></i> Custom menus &amp; catering packages available for private events
             </div>
+
             <div style="text-align:center;margin-top:2rem;">
                 <a href="https://wa.me/13852228100?text=Hi!%20I%20want%20to%20discuss%20a%20custom%20menu%20for%20my%20event" class="btn-wa" target="_blank">
                     <i class="fab fa-whatsapp"></i> Discuss Custom Menu
@@ -1742,7 +1737,6 @@
 
     <script>
         // ─── BUSINESS PHONE NUMBER ──────────────────────────
-        // UPDATED to the new number: +1 (385) 222-8100
         const BUSINESS_PHONE = "13852228100";
 
         // ─── UPDATE ALL WA & SMS LINKS ─────────────────────
