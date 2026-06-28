@@ -63,6 +63,8 @@
             --brand-black: #0a0a0a;
             --brand-dark: #1a1a1a;
             --brand-white: #ffffff;
+            --whatsapp-green: #25D366;
+            --whatsapp-green-dark: #1da154;
             --shadow-heavy: 10px 10px 0 rgba(0, 0, 0, 0.5);
             --shadow-red: 10px 10px 0 var(--brand-red-dark);
         }
@@ -90,7 +92,7 @@
         /* ───────── ANIMATIONS ───────── */
         @keyframes flicker {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+            50% { opacity: 0.7; }
         }
 
         @keyframes float {
@@ -106,11 +108,6 @@
         @keyframes glow-pulse {
             0%, 100% { box-shadow: 0 0 30px rgba(251, 192, 45, 0.1); }
             50% { box-shadow: 0 0 60px rgba(251, 192, 45, 0.25); }
-        }
-
-        @keyframes shine {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
         }
 
         @keyframes zoom-in {
@@ -129,11 +126,6 @@
         }
         .animate-glow {
             animation: glow-pulse 3s ease-in-out infinite;
-        }
-        .animate-shine {
-            background: linear-gradient(90deg, var(--brand-yellow) 0%, var(--brand-yellow-light) 50%, var(--brand-yellow) 100%);
-            background-size: 200% auto;
-            animation: shine 3s linear infinite;
         }
         .animate-zoom {
             animation: zoom-in 0.8s ease-out forwards;
@@ -182,7 +174,7 @@
 
         /* ───────── HERO ───────── */
         .hero {
-            background: linear-gradient(145deg, #0d0d0d 0%, #1a0a0a 60%, #0d0d0d 100%);
+            background: linear-gradient(145deg, #d32f2f 0%, #b71c1c 100%);
             border-radius: 2rem 2rem 0 0;
             padding: 3rem 2.5rem;
             margin-bottom: 0;
@@ -194,7 +186,7 @@
             overflow: hidden;
             clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
             border-bottom: 8px solid var(--brand-yellow);
-            box-shadow: 0 10px 50px rgba(211, 47, 47, 0.15);
+            box-shadow: 0 10px 50px rgba(211, 47, 47, 0.3);
         }
 
         .hero::before {
@@ -208,13 +200,24 @@
                 repeating-linear-gradient(45deg,
                     transparent,
                     transparent 30px,
-                    rgba(211, 47, 47, 0.04) 30px,
-                    rgba(211, 47, 47, 0.04) 31px);
+                    rgba(255, 255, 255, 0.03) 30px,
+                    rgba(255, 255, 255, 0.03) 31px);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "🔥";
+            position: absolute;
+            right: -50px;
+            bottom: -50px;
+            font-size: 20rem;
+            opacity: 0.05;
+            transform: rotate(-20deg);
             pointer-events: none;
         }
 
         .hero-content {
-            flex: 1;
+            flex: 1.2;
             min-width: 280px;
             position: relative;
             z-index: 2;
@@ -222,7 +225,7 @@
         }
 
         .hero-visual {
-            flex: 1.2;
+            flex: 1;
             min-width: 300px;
             position: relative;
             z-index: 2;
@@ -253,7 +256,7 @@
             position: absolute;
             bottom: 18px;
             right: 18px;
-            background: var(--brand-red);
+            background: var(--brand-black);
             color: var(--brand-white);
             padding: 0.6rem 1.5rem;
             border-radius: 60px;
@@ -267,31 +270,34 @@
             font-family: 'Bangers', cursive;
         }
 
+        /* ─── LOGO — 2X BIGGER ─── */
         .logo-wrapper {
             text-align: center;
             margin-bottom: 0.5rem;
         }
 
         .logo-img {
-            max-width: 200px;
+            max-width: 400px;
+            width: 100%;
             height: auto;
             display: inline-block;
-            filter: drop-shadow(0 4px 30px rgba(251, 192, 45, 0.2));
+            filter: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.3));
         }
 
+        /* ─── BADGE / FLASHING TEXT ─── */
         .badge-top {
-            background: var(--brand-yellow);
+            background: var(--brand-black);
             display: inline-block;
-            padding: 0.6rem 2rem;
+            padding: 0.8rem 2.5rem;
             border-radius: 60px;
             font-weight: 800;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            color: var(--brand-black);
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            color: var(--brand-yellow);
             margin-bottom: 1.2rem;
             text-transform: uppercase;
-            border: 3px solid var(--brand-white);
-            box-shadow: 6px 6px 0 var(--brand-red-dark);
+            border: 3px solid var(--brand-yellow);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
             font-family: 'Bangers', cursive;
         }
 
@@ -306,6 +312,7 @@
             letter-spacing: 2px;
         }
 
+        /* ─── HERO TYPOGRAPHY ─── */
         .hero h1 {
             font-family: 'Bangers', 'Anton', sans-serif;
             font-size: 5rem;
@@ -316,7 +323,7 @@
                 0px 4px 0px #8a7a6a,
                 0px 6px 0px #6a5a4a,
                 0px 8px 0px #4a3a2a,
-                0px 10px 30px rgba(0, 0, 0, 0.8);
+                0px 10px 30px rgba(0, 0, 0, 0.5);
             line-height: 1;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
@@ -329,16 +336,16 @@
                 0px 4px 0px #aaaaaa,
                 0px 6px 0px #888888,
                 0px 8px 0px #666666,
-                0px 10px 30px rgba(0, 0, 0, 0.8);
+                0px 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .hero-tagline {
             font-family: 'Bangers', cursive;
             font-size: 1.6rem;
-            color: #f5e2b0;
+            color: #fff;
             letter-spacing: 2px;
             margin-bottom: 1rem;
-            text-shadow: 3px 3px 0 var(--brand-red-dark);
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
         }
 
         .hero-tagline i {
@@ -346,15 +353,16 @@
         }
 
         .hero-desc {
-            color: #ccc;
+            color: #f5e2b0;
             margin: 0.8rem 0 1.8rem;
             font-size: 1.2rem;
             max-width: 600px;
-            opacity: 0.9;
+            opacity: 0.95;
             margin-left: auto;
             margin-right: auto;
         }
 
+        /* ─── CTA GROUP ─── */
         .cta-group {
             display: flex;
             flex-wrap: wrap;
@@ -363,9 +371,10 @@
             justify-content: center;
         }
 
+        /* ─── BUTTONS ─── */
         .btn-primary {
-            background: var(--brand-red);
-            color: var(--brand-white);
+            background: var(--brand-black);
+            color: var(--brand-yellow);
             padding: 1rem 2.2rem;
             border-radius: 60px;
             text-decoration: none;
@@ -376,7 +385,7 @@
             gap: 12px;
             transition: all 0.25s ease;
             border: 3px solid var(--brand-yellow);
-            box-shadow: 6px 6px 0 var(--brand-black);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -384,9 +393,9 @@
         }
 
         .btn-primary:hover {
-            background: var(--brand-red-dark);
+            background: var(--brand-black);
             transform: translate(4px, 4px);
-            box-shadow: 3px 3px 0 var(--brand-black);
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
         }
 
         .btn-secondary {
@@ -402,7 +411,7 @@
             align-items: center;
             gap: 12px;
             transition: all 0.25s ease;
-            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-family: 'Bangers', cursive;
@@ -411,11 +420,12 @@
         .btn-secondary:hover {
             background: rgba(251, 192, 45, 0.1);
             transform: translate(4px, 4px);
-            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
         }
 
+        /* ─── ALL WHATSAPP BUTTONS — GREEN ─── */
         .btn-wa {
-            background: #25D366;
+            background: var(--whatsapp-green);
             color: var(--brand-white);
             padding: 1rem 2.2rem;
             border-radius: 60px;
@@ -427,23 +437,28 @@
             gap: 12px;
             transition: all 0.25s ease;
             border: 3px solid #fff;
-            box-shadow: 6px 6px 0 var(--brand-black);
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-family: 'Bangers', cursive;
+            cursor: pointer;
         }
 
         .btn-wa:hover {
-            background: #1da154;
+            background: var(--whatsapp-green-dark);
             transform: translate(4px, 4px);
-            box-shadow: 3px 3px 0 var(--brand-black);
+            box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-wa i {
+            color: #fff;
         }
 
         /* ─── HERO BIKE ACCENT ─── */
         .hero-bike-accent {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 1.8rem;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
@@ -453,7 +468,7 @@
             max-width: 100px;
             border-radius: 1rem;
             border: 4px solid var(--brand-yellow);
-            box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
             transition: transform 0.3s ease;
         }
 
@@ -463,9 +478,14 @@
 
         .hero-bike-accent span {
             font-family: 'Bangers', cursive;
-            font-size: 1.1rem;
-            color: var(--brand-yellow);
+            font-size: 1.2rem;
+            color: #fff;
             letter-spacing: 1px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-bike-accent span i {
+            color: var(--brand-yellow);
         }
 
         /* ───────── SECTION COMMON ───────── */
@@ -1032,25 +1052,15 @@
         /* ───────── QR CODE ───────── */
         .qr-section {
             text-align: center;
-            background: linear-gradient(145deg, #0d0d0d 0%, #1a0a0a 100%);
+            background: transparent;
             color: var(--brand-white);
             border-radius: 1.5rem;
-            padding: 3rem 2.5rem;
-            margin-bottom: 2.5rem;
-            border: 5px solid var(--brand-yellow);
-            box-shadow: 12px 12px 0 var(--brand-red-dark);
+            padding: 0;
+            margin-bottom: 0;
+            border: none;
+            box-shadow: none;
             position: relative;
-            overflow: hidden;
-        }
-
-        .qr-section::before {
-            content: "🏁";
-            position: absolute;
-            left: -20px;
-            top: -20px;
-            font-size: 14rem;
-            opacity: 0.03;
-            transform: rotate(-20deg);
+            overflow: visible;
         }
 
         .qr-section h3 {
@@ -1062,7 +1072,7 @@
         }
 
         .qr-section p {
-            color: #bbb;
+            color: #f5e2b0;
             margin-bottom: 1.8rem;
             font-size: 1.1rem;
         }
@@ -1095,7 +1105,7 @@
 
         .qr-wrapper .qr-label {
             font-size: 1rem;
-            color: var(--brand-yellow);
+            color: var(--brand-white);
             letter-spacing: 2px;
             font-weight: 600;
             font-family: 'Bangers', cursive;
@@ -1192,7 +1202,7 @@
                 font-size: 1.3rem;
             }
             .logo-img {
-                max-width: 150px;
+                max-width: 280px;
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1208,7 +1218,7 @@
                 padding: 2rem 1.5rem;
             }
             .badge-top {
-                font-size: 0.9rem;
+                font-size: 1rem;
                 padding: 0.5rem 1.5rem;
             }
             .about-text h3 {
@@ -1235,7 +1245,7 @@
             .cta-group .btn-wa {
                 font-size: 0.85rem;
                 padding: 0.7rem 1.2rem;
-                box-shadow: 4px 4px 0 var(--brand-black);
+                box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
             }
             .card {
                 padding: 1.2rem;
@@ -1257,7 +1267,7 @@
                 font-size: 1.3rem;
             }
             .logo-img {
-                max-width: 100px;
+                max-width: 200px;
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1274,7 +1284,7 @@
                 max-width: 50px;
             }
             .hero-bike-accent span {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
             .hero-visual .badge-float {
                 font-size: 0.6rem;
@@ -1287,7 +1297,7 @@
                 max-height: 180px;
             }
             .badge-top {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
                 padding: 0.4rem 1rem;
                 border-width: 2px;
             }
@@ -1333,6 +1343,10 @@
             .social-footer h3 {
                 font-size: 1.6rem;
             }
+            .btn-wa {
+                font-size: 0.85rem;
+                padding: 0.7rem 1.2rem;
+            }
         }
     </style>
 </head>
@@ -1340,35 +1354,39 @@
     <div class="landing">
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  HERO                                        -->
+        <!--  HERO — RED BACKGROUND                       -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="hero">
             <div class="hero-content">
-                <!-- LOGO - CENTERED -->
+                <!-- LOGO — 2X BIGGER (max-width: 400px) -->
                 <div class="logo-wrapper">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
-                         alt="Hot Rod Pizza Logo"
+                         alt="Hot Rod Pizza"
                          class="logo-img animate-float"
                          onerror="this.onerror=null; this.style.display='none';" />
                 </div>
 
-                <!-- FLASHING TEXT - CENTERED & LARGER -->
+                <!-- FLASHING TEXT -->
                 <div class="badge-top animate-flicker">🔥 ROLLING INTO EVENTS 🔥</div>
 
+                <!-- MAIN HEADING -->
                 <h1>HOT ROD<br /><span>PIZZA</span></h1>
+
+                <!-- TAGLINE -->
                 <div class="hero-tagline">
-                    <i class="fas fa-fire"></i> Revving Up Flavor at Fairs, Festivals, and Events!
-                </div>
-                <div class="hero-desc">
-                    Wood‑fired pizzas, loaded hot dogs, and tasty treats — served fresh off our custom trike trailer.
-                    Fast, fun, and flavorful.
+                    <i class="fas fa-fire"></i> REVVING UP FLAVOR AT FAIRS, FESTIVALS, AND EVENTS!
                 </div>
 
-                <!-- ALL CTAs → WHATSAPP -->
+                <!-- DESCRIPTION -->
+                <div class="hero-desc">
+                    Wood‑fired pizzas, loaded hot dogs, and tasty treats — served fresh off our custom trike trailer. Fast, fun, and flavorful.
+                </div>
+
+                <!-- CTAs — ALL GREEN WHATSAPP EXCEPT "VIEW OUR MENU" -->
                 <div class="cta-group">
-                    <a href="https://wa.me/14352727572?text=Hi!%20I'd%20like%20to%20book%20Hot%20Rod%20Pizza%20for%20an%20event" class="btn-primary" target="_blank"><i class="fas fa-calendar-plus"></i> Book Our Trike</a>
-                    <a href="#menu" class="btn-secondary"><i class="fas fa-utensils"></i> View Our Menu</a>
-                    <a href="https://wa.me/14352727572?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Chat with Us</a>
+                    <a href="https://wa.me/14352727572?text=Hi!%20I'd%20like%20to%20book%20Hot%20Rod%20Pizza%20for%20an%20event" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> BOOK OUR TRIKE</a>
+                    <a href="#menu" class="btn-secondary"><i class="fas fa-utensils"></i> VIEW OUR MENU</a>
+                    <a href="https://wa.me/14352727572?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> CHAT WITH US</a>
                 </div>
 
                 <!-- BIKE ACCENT -->
@@ -1376,11 +1394,11 @@
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Bike.png"
                          alt="Hot Rod Bike"
                          onerror="this.onerror=null; this.style.display='none';">
-                    <span><i class="fas fa-motorcycle"></i> Custom Trike • Built to Roll</span>
+                    <span><i class="fas fa-motorcycle"></i> CUSTOM TRIKE • BUILT TO ROLL</span>
                 </div>
             </div>
 
-            <!-- HERO VISUAL - VIDEO -->
+            <!-- HERO VISUAL — VIDEO -->
             <div class="hero-visual animate-float-slow">
                 <div class="main-media">
                     <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
@@ -1398,7 +1416,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  ABOUT US - BLACK BACKGROUND                 -->
+        <!--  ABOUT US — BLACK BACKGROUND                 -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-black" id="about">
             <div class="about-grid">
@@ -1418,9 +1436,8 @@
                         <span><i class="fas fa-check-circle"></i> Premium ingredients</span>
                         <span><i class="fas fa-check-circle"></i> Cooked to order</span>
                     </div>
-                    <!-- CHAT CTA -->
                     <div style="margin-top:1.5rem;">
-                        <a href="https://wa.me/14352727572?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank" style="font-size:1rem;padding:0.8rem 1.8rem;">
+                        <a href="https://wa.me/14352727572?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank">
                             <i class="fab fa-whatsapp"></i> Ask us anything on WhatsApp
                         </a>
                     </div>
@@ -1437,7 +1454,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  SHOWCASE - RED BACKGROUND                   -->
+        <!--  SHOWCASE — RED BACKGROUND                   -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-bg" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-white);">📸 In <span style="color:var(--brand-yellow);">Action</span></div>
@@ -1462,9 +1479,8 @@
                     <div class="showcase-label"><i class="fas fa-people-arrows"></i> Crowd Favorite</div>
                 </div>
             </div>
-            <!-- CHAT CTA -->
             <div style="text-align:center;margin-top:2rem;">
-                <a href="https://wa.me/14352727572?text=Hi!%20I%20want%20to%20book%20Hot%20Rod%20Pizza%20for%20my%20event" class="btn-primary" target="_blank" style="background:var(--brand-black);border-color:var(--brand-white);">
+                <a href="https://wa.me/14352727572?text=Hi!%20I%20want%20to%20book%20Hot%20Rod%20Pizza%20for%20my%20event" class="btn-wa" target="_blank">
                     <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
                 </a>
             </div>
@@ -1474,7 +1490,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  FIND US AROUND - BLACK BACKGROUND           -->
+        <!--  FIND US AROUND — BLACK BACKGROUND           -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-black" style="border-top-color: var(--brand-yellow);">
             <div class="section-title">Find Us <span>Around</span></div>
@@ -1501,9 +1517,8 @@
                 <i class="fas fa-map-pin"></i>
                 Based in <strong>Kamas, UT</strong> — we travel throughout the state and beyond!
             </div>
-            <!-- CHAT CTA -->
             <div style="text-align:center;margin-top:2rem;">
-                <a href="https://wa.me/14352727572?text=Hi!%20Where%20will%20Hot%20Rod%20Pizza%20be%20next%3F" class="btn-wa" target="_blank" style="font-size:1rem;padding:0.8rem 1.8rem;">
+                <a href="https://wa.me/14352727572?text=Hi!%20Where%20will%20Hot%20Rod%20Pizza%20be%20next%3F" class="btn-wa" target="_blank">
                     <i class="fab fa-whatsapp"></i> Ask about our schedule
                 </a>
             </div>
@@ -1513,13 +1528,12 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  MENU - RED BACKGROUND                       -->
+        <!--  MENU — RED BACKGROUND                       -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-dark" id="menu" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-yellow);">🍕 Menu <span style="color:var(--brand-white);">Highlights</span></div>
             <div class="section-sub" style="color:#f5e2b0;">Wood‑fired perfection and street eats</div>
 
-            <!-- Highlights -->
             <div class="menu-highlights">
                 <div class="highlight-card" style="background:rgba(255,255,255,0.06);border-color:#444;">
                     <i class="fas fa-pizza-slice"></i>
@@ -1538,19 +1552,16 @@
                 </div>
             </div>
 
-            <!-- Trailer Spec -->
             <div class="trailer-spec animate-glow">
                 <i class="fas fa-truck"></i>
                 <strong>Custom Trailer</strong> — Powered by <i class="fas fa-fire" style="color:var(--brand-yellow);"></i> Gozney Dome Gen 2
                 <span class="spec-sub">Authentic wood‑fired flavor, mobile &amp; ready to roll</span>
             </div>
 
-            <!-- Detailed Menu with Prices -->
             <div style="margin-top:2.5rem;border-top:2px dashed #555;padding-top:2.5rem;">
                 <div class="section-title" style="font-size:2rem;color:var(--brand-yellow);">📋 Full <span style="color:var(--brand-white);">Menu</span></div>
                 <div class="section-sub" style="color:#f5e2b0;">Gourmet street eats — fresh, fired, and priced right</div>
                 <div class="menu-grid">
-                    <!-- Pizzas -->
                     <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
                         <h4>🍕 Wood‑Fired Pizzas</h4>
                         <div class="menu-item"><span>Classic Margherita</span><span class="price">$15</span></div>
@@ -1562,7 +1573,6 @@
                             <i class="fas fa-tag"></i> Extra toppings +$2 each
                         </div>
                     </div>
-                    <!-- Hot Dogs -->
                     <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
                         <h4>🌭 Hot Rod Dogs</h4>
                         <div class="menu-item"><span>Classic All‑Beef Dog</span><span class="price">$9</span></div>
@@ -1573,7 +1583,6 @@
                             <i class="fas fa-tag"></i> Extra toppings +$1 each
                         </div>
                     </div>
-                    <!-- Sides & Drinks -->
                     <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
                         <h4>🍟 Sides &amp; Drinks</h4>
                         <div class="menu-item"><span>Garlic Knots (6 pcs)</span><span class="price">$6</span></div>
@@ -1588,9 +1597,8 @@
                     <i class="fas fa-utensils"></i> Custom menus &amp; catering packages available for private events
                 </div>
             </div>
-            <!-- CHAT CTA -->
             <div style="text-align:center;margin-top:2rem;">
-                <a href="https://wa.me/14352727572?text=Hi!%20I%20want%20to%20discuss%20a%20custom%20menu%20for%20my%20event" class="btn-primary" target="_blank" style="background:var(--brand-black);border-color:var(--brand-white);">
+                <a href="https://wa.me/14352727572?text=Hi!%20I%20want%20to%20discuss%20a%20custom%20menu%20for%20my%20event" class="btn-wa" target="_blank">
                     <i class="fab fa-whatsapp"></i> Discuss Custom Menu
                 </a>
             </div>
@@ -1600,7 +1608,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  BOOKING FORM - BLACK BACKGROUND             -->
+        <!--  BOOKING FORM — BLACK BACKGROUND             -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-black" id="booking-form" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-yellow);">📋 Book Us for Your <span style="color:var(--brand-white);">Next Event!</span></div>
@@ -1619,7 +1627,6 @@
                 </div>
             </div>
 
-            <!-- FORM SUBMITS TO WHATSAPP -->
             <form id="eventBookingForm" action="#" method="post">
                 <div class="form-grid">
                     <div class="form-field">
@@ -1669,7 +1676,7 @@
                         <textarea rows="3" name="message" placeholder="Any special requests, timing, setup notes…"></textarea>
                     </div>
                     <div class="booking-submit">
-                        <button type="submit" class="btn-primary" style="background:var(--brand-red);font-size:1.15rem;padding:1rem 2.5rem;">
+                        <button type="submit" class="btn-wa" style="font-size:1.15rem;padding:1rem 2.5rem;border:none;box-shadow:6px 6px 0 rgba(0,0,0,0.3);">
                             <i class="fab fa-whatsapp"></i> Send Booking Request via WhatsApp
                         </button>
                     </div>
@@ -1684,10 +1691,10 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  QR CODE - RED BACKGROUND                    -->
+        <!--  QR CODE — RED BACKGROUND                    -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-bg" style="border-top-color: var(--brand-yellow);">
-            <div class="qr-section" style="background:transparent;border:none;box-shadow:none;padding:0;margin:0;">
+            <div class="qr-section">
                 <h3 style="color:var(--brand-yellow);"><i class="fas fa-qrcode"></i> Scan &amp; Book On the Spot</h3>
                 <p style="color:#f5e2b0;">
                     Find us at seasonal events, markets, and festivals?<br />
@@ -1697,9 +1704,8 @@
                     <div id="qrcode"></div>
                     <span class="qr-label" style="color:var(--brand-white);"><i class="fas fa-arrow-down"></i> Scan to book</span>
                 </div>
-                <!-- CHAT CTA -->
                 <div style="margin-top:2rem;">
-                    <a href="https://wa.me/14352727572?text=Hi!%20I%20saw%20your%20QR%20code%20and%20want%20to%20book%20Hot%20Rod%20Pizza" class="btn-primary" target="_blank" style="background:var(--brand-black);border-color:var(--brand-white);">
+                    <a href="https://wa.me/14352727572?text=Hi!%20I%20saw%20your%20QR%20code%20and%20want%20to%20book%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank">
                         <i class="fab fa-whatsapp"></i> Or Book Directly on WhatsApp
                     </a>
                 </div>
@@ -1718,8 +1724,7 @@
                 <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
-            <!-- FINAL CHAT CTA -->
-            <a href="https://wa.me/14352727572?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank" style="font-size:1rem;padding:0.8rem 1.8rem;display:inline-flex;margin-bottom:1.5rem;">
+            <a href="https://wa.me/14352727572?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank" style="display:inline-flex;margin-bottom:1.5rem;">
                 <i class="fab fa-whatsapp"></i> Chat with us anytime
             </a>
             <div class="footer-note">
