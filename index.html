@@ -229,29 +229,36 @@
             background: #000;
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
+            /* INCREASED FOR FULL TRAILER VIEW */
+            max-height: 480px;
+            /* INCREASED SO TRAILER IS FULLY VISIBLE */
         }
 
         .hero-visual .main-media video,
         .hero-visual .main-media img {
             width: 100%;
-            max-height: 380px;
-            object-fit: cover;
+            height: 100%;
+            max-height: 480px;
+            object-fit: contain;
+            /* CHANGED FROM 'cover' TO 'contain' SO FULL TRAILER SHOWS */
             display: block;
+            background: #000;
         }
 
         .hero-visual .main-media video::-webkit-media-controls {
             filter: invert(1) hue-rotate(180deg);
         }
 
-        /* ─── LOGO — INCREASED SIZE ─── */
+        /* ─── LOGO — RESPONSIVE SIZE ─── */
         .logo-wrapper {
             text-align: center;
             margin-bottom: 0.5rem;
         }
 
         .logo-img {
-            max-width: 500px;
+            max-width: 320px;
+            /* REDUCED for desktop */
             width: 100%;
             height: auto;
             display: inline-block;
@@ -428,7 +435,7 @@
             color: #fff;
         }
 
-        /* ─── HERO BIKE ACCENT — INCREASED SIZE ─── */
+        /* ─── HERO BIKE ACCENT ─── */
         .hero-bike-accent {
             display: flex;
             gap: 1.5rem;
@@ -1188,6 +1195,7 @@
             }
             .logo-img {
                 max-width: 350px;
+                /* larger on tablet */
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1198,9 +1206,12 @@
             .showcase-grid .showcase-item:nth-child(4) {
                 grid-column: span 2;
             }
+            .hero-visual .main-media {
+                max-height: 380px;
+            }
             .hero-visual .main-media video,
             .hero-visual .main-media img {
-                max-height: 250px;
+                max-height: 380px;
             }
             .hero-bike-accent img {
                 max-width: 200px;
@@ -1225,7 +1236,6 @@
                 font-size: 1.1rem;
             }
 
-            /* ─── FIX MOBILE CENTERING ─── */
             .form-grid {
                 justify-items: center;
             }
@@ -1315,6 +1325,7 @@
             }
             .logo-img {
                 max-width: 280px;
+                /* large on mobile */
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1326,9 +1337,12 @@
             .showcase-grid .showcase-item:nth-child(4) {
                 grid-column: span 2;
             }
+            .hero-visual .main-media {
+                max-height: 280px;
+            }
             .hero-visual .main-media video,
             .hero-visual .main-media img {
-                max-height: 160px;
+                max-height: 280px;
             }
             .hero-bike-accent {
                 gap: 0.8rem;
@@ -1395,7 +1409,6 @@
                 max-width: 280px;
             }
 
-            /* ─── FIX MOBILE CENTERING (small screens) ─── */
             .form-grid {
                 justify-items: center;
             }
@@ -1467,7 +1480,7 @@
         <!-- ══════════════════════════════════════════════ -->
         <div class="hero">
             <div class="hero-content">
-                <!-- LOGO — INCREASED SIZE (max-width: 500px) -->
+                <!-- LOGO — RESPONSIVE SIZE -->
                 <div class="logo-wrapper">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
                          alt="Hot Rod Pizza"
@@ -1498,7 +1511,7 @@
                     <a href="https://wa.me/13852228100?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> CHAT WITH US</a>
                 </div>
 
-                <!-- BIKE ACCENT — INCREASED SIZE 3-4X -->
+                <!-- BIKE ACCENT — LARGER -->
                 <div class="hero-bike-accent">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Bike.png"
                          alt="Hot Rod Bike"
@@ -1507,7 +1520,7 @@
                 </div>
             </div>
 
-            <!-- HERO VISUAL — VIDEO -->
+            <!-- HERO VISUAL — VIDEO WITH FULL TRAILER VIEW -->
             <div class="hero-visual animate-float-slow">
                 <div class="main-media">
                     <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
@@ -1594,7 +1607,7 @@
             </div>
             <div style="text-align:center;margin-top:2rem;">
                 <a href="https://wa.me/13852228100?text=Hi!%20I%20want%20to%20book%20Hot%20Rod%20Pizza%20for%20my%20event" class="btn-wa" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Book Now on WhatsApp
+                    <i class="fab fa-whatsapp"></i> BOOK NOW ON WHATSAPP
                 </a>
             </div>
         </div>
