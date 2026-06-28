@@ -244,32 +244,14 @@
             filter: invert(1) hue-rotate(180deg);
         }
 
-        .hero-visual .badge-float {
-            position: absolute;
-            bottom: 18px;
-            right: 18px;
-            background: var(--brand-black);
-            color: var(--brand-white);
-            padding: 0.6rem 1.5rem;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 3px solid var(--brand-yellow);
-            box-shadow: 6px 6px 0 rgba(0,0,0,0.6);
-            z-index: 5;
-            font-family: 'Bangers', cursive;
-        }
-
-        /* ─── LOGO — 2X BIGGER ─── */
+        /* ─── LOGO — INCREASED SIZE ─── */
         .logo-wrapper {
             text-align: center;
             margin-bottom: 0.5rem;
         }
 
         .logo-img {
-            max-width: 400px;
+            max-width: 500px;
             width: 100%;
             height: auto;
             display: inline-block;
@@ -592,7 +574,7 @@
             color: #f5e2b0;
         }
 
-        /* ───────── ABOUT US ───────── */
+         /* ───────── ABOUT US ───────── */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -731,8 +713,7 @@
             color: var(--brand-yellow);
             margin-right: 8px;
         }
-
-        /* ───────── FIND US AROUND ───────── */
+          /* ───────── FIND US AROUND ───────── */
         .find-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -868,9 +849,8 @@
             font-size: 1.05rem;
             margin-top: 0.5rem;
             opacity: 0.85;
-        }
-
-        /* ───────── NEW MENU — HOT ROD DOGS + SIDES ───────── */
+            }
+        /* ───────── MENU — PIZZA + HOT ROD DOGS + SIDES ───────── */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1101,9 +1081,8 @@
             letter-spacing: 2px;
             font-weight: 600;
             font-family: 'Bangers', cursive;
-        }
-
-        /* ───────── SOCIAL & FOOTER ───────── */
+            }
+                /* ───────── SOCIAL & FOOTER ───────── */
         .social-footer {
             background: linear-gradient(145deg, #0d0d0d 0%, #1a0a0a 100%);
             color: var(--brand-white);
@@ -1204,7 +1183,7 @@
                 font-size: 1.3rem;
             }
             .logo-img {
-                max-width: 280px;
+                max-width: 350px;
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1328,7 +1307,7 @@
                 font-size: 1.3rem;
             }
             .logo-img {
-                max-width: 200px;
+                max-width: 280px;
             }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1352,13 +1331,6 @@
             }
             .hero-bike-accent span {
                 font-size: 0.85rem;
-            }
-            .hero-visual .badge-float {
-                font-size: 0.6rem;
-                padding: 0.3rem 0.8rem;
-                bottom: 8px;
-                right: 8px;
-                border-width: 2px;
             }
             .about-image img {
                 max-height: 180px;
@@ -1414,9 +1386,8 @@
                 font-size: 0.85rem;
                 padding: 0.7rem 1.2rem;
                 max-width: 280px;
-            }
-
-            /* ─── FIX MOBILE CENTERING (small screens) ─── */
+        }
+                 /* ─── FIX MOBILE CENTERING (small screens) ─── */
             .form-grid {
                 justify-items: center;
             }
@@ -1488,7 +1459,7 @@
         <!-- ══════════════════════════════════════════════ -->
         <div class="hero">
             <div class="hero-content">
-                <!-- LOGO — 2X BIGGER -->
+                <!-- LOGO — INCREASED SIZE (max-width: 500px) -->
                 <div class="logo-wrapper">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
                          alt="Hot Rod Pizza"
@@ -1528,16 +1499,12 @@
                 </div>
             </div>
 
-            <!-- HERO VISUAL — VIDEO -->
+            <!-- HERO VISUAL — REPLACED WITH NEW IMAGE -->
             <div class="hero-visual animate-float-slow">
                 <div class="main-media">
-                    <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
-                        <source src="3D Render.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="badge-float animate-flicker">
-                        <i class="fas fa-play"></i> WATCH THE ROLL
-                    </div>
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/1782680994737.jpg"
+                         alt="Hot Rod Pizza Trailer"
+                         onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png'; this.alt='Hot Rod Pizza Trailer'">
                 </div>
             </div>
         </div>
@@ -1664,13 +1631,26 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  MENU — UPDATED: HOT ROD DOGS + SIDES        -->
+        <!--  MENU — PIZZA + HOT ROD DOGS + SIDES        -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-dark" id="menu" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-yellow);">🔥 Menu <span style="color:var(--brand-white);">Highlights</span></div>
             <div class="section-sub" style="color:#f5e2b0;">Gourmet street eats — fresh, fired, and priced right</div>
 
             <div class="menu-grid">
+                <!-- PIZZAS — RESTORED -->
+                <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
+                    <h4>🍕 WOOD‑FIRED PIZZAS</h4>
+                    <div class="menu-item"><span>Classic Margherita</span><span class="price">$15</span></div>
+                    <div class="menu-item"><span>Pepperoni Hot Rod</span><span class="price">$16</span></div>
+                    <div class="menu-item"><span>BBQ Chicken</span><span class="price">$18</span></div>
+                    <div class="menu-item"><span>White Lightning (garlic &amp; ricotta)</span><span class="price">$17</span></div>
+                    <div class="menu-item"><span>Build‑Your‑Own (any 3 toppings)</span><span class="price">$14</span></div>
+                    <div class="menu-tag">
+                        <i class="fas fa-tag"></i> Extra toppings +$2 each
+                    </div>
+                </div>
+
                 <!-- HOT ROD DOGS -->
                 <div class="menu-cat" style="background:rgba(255,255,255,0.05);border-color:#444;">
                     <h4>🌭 HOT ROD DOGS</h4>
