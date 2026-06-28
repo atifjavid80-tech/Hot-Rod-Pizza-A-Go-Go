@@ -90,23 +90,23 @@
 
         /* ───────── ANIMATIONS (subtle) ───────── */
         @keyframes flicker {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.9;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
         }
 
         @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-6px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
 
         .animate-flicker {
@@ -114,6 +114,14 @@
         }
         .animate-float {
             animation: float 4s ease-in-out infinite;
+        }
+        .animate-fade {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .animate-shimmer {
+            background: linear-gradient(90deg, var(--brand-yellow) 0%, var(--brand-yellow-light) 50%, var(--brand-yellow) 100%);
+            background-size: 200% auto;
+            animation: shimmer 3s linear infinite;
         }
 
         /* ───────── FLAME DIVIDER ───────── */
@@ -172,25 +180,64 @@
             z-index: 2;
         }
 
-        .hero-media {
+        .hero-gallery {
             flex: 1.2;
             min-width: 280px;
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 0.8rem;
         }
 
-        .hero-media video {
-            width: 100%;
+        .hero-gallery .gallery-main {
+            grid-column: 1 / -1;
             border-radius: 1.2rem;
+            overflow: hidden;
             border: 4px solid var(--brand-yellow);
             box-shadow: var(--shadow-heavy);
-            display: block;
             background: #000;
-            max-height: 380px;
-            object-fit: cover;
         }
 
-        .hero-media video::-webkit-media-controls {
+        .hero-gallery .gallery-main video,
+        .hero-gallery .gallery-main img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-gallery .gallery-thumb {
+            border-radius: 0.8rem;
+            overflow: hidden;
+            border: 3px solid var(--brand-yellow);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
+            background: #000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+
+        .hero-gallery .gallery-thumb:hover {
+            transform: scale(1.03);
+            box-shadow: 6px 6px 0 var(--brand-red-dark);
+        }
+
+        .hero-gallery .gallery-thumb img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-gallery .gallery-thumb video {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-gallery video::-webkit-media-controls {
             filter: invert(1) hue-rotate(180deg);
         }
 
@@ -434,20 +481,27 @@
             color: var(--brand-yellow);
         }
 
-        .about-image video {
-            width: 100%;
+        .about-image {
             border-radius: 1.2rem;
+            overflow: hidden;
             border: 4px solid var(--brand-yellow);
-            object-fit: cover;
             box-shadow: 8px 8px 0 var(--brand-red-dark);
             transition: transform 0.2s ease;
-            max-height: 350px;
             background: #000;
         }
 
-        .about-image video:hover {
+        .about-image:hover {
             transform: scale(1.01);
         }
+
+        .about-image img,
+        .about-image video {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
         .about-image video::-webkit-media-controls {
             filter: invert(1) hue-rotate(180deg);
         }
@@ -467,6 +521,36 @@
         .about-features i {
             color: var(--brand-yellow);
             margin-right: 6px;
+        }
+
+        /* ───────── IMAGE SHOWCASE ───────── */
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .showcase-item {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 3px solid #2a2a2a;
+            transition: all 0.3s ease;
+            background: #000;
+            aspect-ratio: 4/3;
+        }
+
+        .showcase-item:hover {
+            border-color: var(--brand-yellow);
+            box-shadow: 6px 6px 0 var(--brand-red-dark);
+            transform: translateY(-4px);
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         /* ───────── FIND US AROUND ───────── */
@@ -926,9 +1010,6 @@
             .qr-wrapper img {
                 max-width: 160px;
             }
-            .hero-media video {
-                max-height: 250px;
-            }
             .social-footer {
                 clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
                 padding-top: 2.5rem;
@@ -936,11 +1017,18 @@
             .hero-tagline {
                 font-size: 1.1rem;
             }
-            .about-image video {
-                max-height: 250px;
-            }
             .logo-img {
                 max-width: 140px;
+            }
+            .showcase-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-gallery {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-gallery .gallery-thumb img,
+            .hero-gallery .gallery-thumb video {
+                height: 80px;
             }
         }
 
@@ -967,20 +1055,29 @@
             .social-icons a {
                 font-size: 1.6rem;
             }
-            .hero-media video {
-                max-height: 180px;
-            }
             .flame-divider {
                 height: 14px;
             }
             .trailer-spec strong {
                 font-size: 1.1rem;
             }
-            .about-image video {
-                max-height: 180px;
-            }
             .logo-img {
                 max-width: 100px;
+            }
+            .showcase-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero-gallery {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+            .hero-gallery .gallery-thumb img,
+            .hero-gallery .gallery-thumb video {
+                height: 60px;
+            }
+            .hero-gallery .gallery-main video,
+            .hero-gallery .gallery-main img {
+                max-height: 140px;
             }
         }
     </style>
@@ -1014,12 +1111,30 @@
                     <a href="https://wa.me/14352727572?text=Hi!%20I'd%20like%20to%20book%20Hot%20Rod%20Pizza%20for%20an%20event" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
             </div>
-            <div class="hero-media">
-                <!-- TRAILER VIDEO with poster image -->
-                <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
-                    <source src="3D Render.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+
+            <!-- HERO GALLERY: Video + 3 Images -->
+            <div class="hero-gallery">
+                <div class="gallery-main">
+                    <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
+                        <source src="3D Render.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="gallery-thumb">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Bike.png"
+                         alt="Hot Rod Bike"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Bike'">
+                </div>
+                <div class="gallery-thumb">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Picture1.png"
+                         alt="Hot Rod Pizza Event"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Event+1'">
+                </div>
+                <div class="gallery-thumb" style="grid-column: span 2;">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Picture2.png"
+                         alt="Hot Rod Pizza Trailer"
+                         onerror="this.onerror=null; this.src='https://placehold.co/800x300/1a1a1a/fbc02d?text=Event+2'">
+                </div>
             </div>
         </div>
 
@@ -1049,10 +1164,37 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
-                        <source src="3D Render.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Picture1.png"
+                         alt="Hot Rod Pizza at Event"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x350/1a1a1a/fbc02d?text=Hot+Rod+Pizza'">
+                </div>
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="flame-divider"></div>
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!--  IMAGE SHOWCASE                               -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="card" style="border-top-color: var(--brand-yellow);">
+            <div class="section-title">📸 In <span>Action</span></div>
+            <div class="section-sub">See the Hot Rod Pizza experience in motion</div>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Bike.png"
+                         alt="Hot Rod Bike"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Bike'">
+                </div>
+                <div class="showcase-item">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Picture2.png"
+                         alt="Hot Rod Pizza Trailer"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Trailer'">
+                </div>
+                <div class="showcase-item">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Picture1.png"
+                         alt="Hot Rod Pizza Event"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/1a1a1a/fbc02d?text=Event'">
                 </div>
             </div>
         </div>
