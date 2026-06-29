@@ -156,16 +156,11 @@
             border-radius: 2rem 2rem 0 0;
             padding: 1.5rem 1.5rem;
             margin-bottom: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 6px solid var(--brand-yellow);
+            box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
             position: relative;
             overflow: hidden;
             clip-path: polygon(0 0, 100% 0, 100% 94%, 0 100%);
-            border-bottom: 6px solid var(--brand-yellow);
-            box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
         }
 
         .hero::before {
@@ -195,41 +190,178 @@
             pointer-events: none;
         }
 
-        .hero-content {
-            flex: 1.2;
-            min-width: 260px;
+        /* ─── HERO: DESKTOP GRID ─── */
+        @media (min-width: 821px) {
+            .hero {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto 1fr;
+                grid-template-areas:
+                    "text logo"
+                    "text video";
+                gap: 1rem 2rem;
+                align-items: start;
+                padding: 2rem 2rem;
+            }
+
+            .hero-text {
+                grid-area: text;
+                text-align: left;
+                padding-right: 1rem;
+            }
+
+            .hero-logo {
+                grid-area: logo;
+                text-align: center;
+                justify-self: end;
+                align-self: start;
+                padding-top: 0.2rem;
+            }
+
+            .hero-logo .logo-img {
+                max-width: 280px;
+            }
+
+            .hero-visual {
+                grid-area: video;
+                align-self: start;
+                justify-self: end;
+                width: 100%;
+                max-width: 550px;
+            }
+
+            .hero-desc {
+                margin-left: 0;
+                margin-right: 0;
+                max-width: 100%;
+            }
+
+            .hero-bike-accent {
+                justify-content: flex-start;
+            }
+
+            .cta-group {
+                justify-content: flex-start;
+            }
+
+            .hero-tagline {
+                text-align: left;
+            }
+
+            .hero h1 {
+                text-align: left;
+            }
+
+            .badge-top {
+                margin-left: 0;
+            }
+
+            .hero-bike-accent span {
+                font-size: 1rem;
+            }
+
+            .hero-bike-accent img {
+                max-width: 180px;
+            }
+        }
+
+        /* ─── HERO: MOBILE FLEX ─── */
+        @media (max-width: 820px) {
+            .hero {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem 1.2rem;
+                text-align: center;
+                clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+            }
+
+            .hero-logo {
+                order: 1;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.3rem;
+            }
+
+            .hero-logo .logo-img {
+                max-width: 220px;
+            }
+
+            .hero-text {
+                order: 2;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-visual {
+                order: 3;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 0.5rem;
+            }
+
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-bike-accent {
+                justify-content: center;
+            }
+
+            .cta-group {
+                justify-content: center;
+            }
+
+            .badge-top {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-bike-accent img {
+                max-width: 120px;
+            }
+        }
+
+        /* ─── HERO SHARED ─── */
+        .hero-logo {
             position: relative;
             z-index: 2;
-            text-align: center;
+        }
+
+        .hero-logo .logo-img {
+            width: 100%;
+            height: auto;
+            display: inline-block;
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
         }
 
         .hero-visual {
-            flex: 1;
-            min-width: 280px;
             position: relative;
             z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .hero-visual .main-media {
-            border-radius: 1.5rem;
+            border-radius: 1.2rem;
             overflow: hidden;
             border: 4px solid var(--brand-yellow);
             box-shadow: var(--shadow-heavy);
             background: #000;
             position: relative;
             width: 100%;
-            max-width: 550px;
-            max-height: 360px;
+            max-height: 320px;
         }
 
         .hero-visual .main-media video,
         .hero-visual .main-media img {
             width: 100%;
             height: 100%;
-            max-height: 360px;
+            max-height: 320px;
             object-fit: contain;
             display: block;
             background: #000;
@@ -239,21 +371,6 @@
             filter: invert(1) hue-rotate(180deg);
         }
 
-        /* ─── LOGO ─── */
-        .logo-wrapper {
-            text-align: center;
-            margin-bottom: 0.4rem;
-        }
-
-        .logo-img {
-            max-width: 250px;
-            width: 100%;
-            height: auto;
-            display: inline-block;
-            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
-        }
-
-        /* ─── BADGE / FLASHING TEXT ─── */
         .badge-top {
             background: var(--brand-black);
             display: inline-block;
@@ -279,9 +396,9 @@
             padding: 0.4rem 1.2rem;
             font-family: 'Bangers', cursive;
             letter-spacing: 2px;
+            display: inline-block;
         }
 
-        /* ─── HERO TYPOGRAPHY ─── */
         .hero h1 {
             font-family: 'Bangers', 'Anton', sans-serif;
             font-size: 4rem;
@@ -327,20 +444,15 @@
             font-size: 1rem;
             max-width: 500px;
             opacity: 0.95;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        /* ─── CTA GROUP ─── */
         .cta-group {
             display: flex;
             flex-wrap: wrap;
             gap: 0.8rem;
             margin-top: 0.3rem;
-            justify-content: center;
         }
 
-        /* ─── BUTTONS ─── */
         .btn-primary {
             background: var(--brand-black);
             color: var(--brand-yellow);
@@ -422,23 +534,22 @@
             color: #fff;
         }
 
-        /* ─── HERO BIKE ACCENT ─── */
         .hero-bike-accent {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
             align-items: center;
-            justify-content: center;
             flex-wrap: wrap;
         }
 
         .hero-bike-accent img {
-            max-width: 200px;
-            width: 100%;
             border-radius: 1rem;
             border: 4px solid var(--brand-yellow);
             box-shadow: 5px 5px 0 rgba(0,0,0,0.4);
             transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 180px;
+            height: auto;
         }
 
         .hero-bike-accent img:hover {
@@ -847,7 +958,7 @@
             opacity: 0.85;
         }
 
-        /* ───────── MENU — PIZZA + HOT ROD DOGS + SIDES ───────── */
+        /* ───────── MENU ───────── */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1152,20 +1263,6 @@
             .booking-submit {
                 grid-column: span 1;
             }
-            .hero {
-                padding: 2rem 1.5rem;
-                clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-content {
-                min-width: unset;
-                width: 100%;
-            }
-            .hero-visual {
-                min-width: unset;
-                width: 100%;
-            }
             .section-title {
                 font-size: 2.2rem;
             }
@@ -1180,35 +1277,6 @@
             .hero-tagline {
                 font-size: 1.3rem;
             }
-            .logo-img {
-                max-width: 280px;
-            }
-            .showcase-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .showcase-grid .showcase-item:nth-child(3) {
-                grid-column: span 2;
-            }
-            .showcase-grid .showcase-item:nth-child(4) {
-                grid-column: span 2;
-            }
-            .hero-visual .main-media {
-                max-height: 360px;
-            }
-            .hero-visual .main-media video,
-            .hero-visual .main-media img {
-                max-height: 360px;
-            }
-            .hero-bike-accent img {
-                max-width: 180px;
-            }
-            .card {
-                padding: 1.5rem 1.2rem;
-            }
-            .badge-top {
-                font-size: 0.95rem;
-                padding: 0.4rem 1.2rem;
-            }
             .about-text h3 {
                 font-size: 1.8rem;
             }
@@ -1220,6 +1288,19 @@
             }
             .hero-bike-accent span {
                 font-size: 1.1rem;
+            }
+
+            /* ─── SHOWCASE: ALL 4 IMAGES EQUAL ON MOBILE ─── */
+            .showcase-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
+            }
+            .showcase-grid .showcase-item:nth-child(3),
+            .showcase-grid .showcase-item:nth-child(4) {
+                grid-column: span 1;
+            }
+            .showcase-item {
+                aspect-ratio: 4/3;
             }
 
             .form-grid {
@@ -1309,18 +1390,16 @@
             .trailer-spec strong {
                 font-size: 1.2rem;
             }
-            .logo-img {
-                max-width: 220px;
-            }
             .showcase-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 0.6rem;
             }
-            .showcase-grid .showcase-item:nth-child(3) {
-                grid-column: span 2;
-            }
+            .showcase-grid .showcase-item:nth-child(3),
             .showcase-grid .showcase-item:nth-child(4) {
-                grid-column: span 2;
+                grid-column: span 1;
+            }
+            .showcase-item {
+                aspect-ratio: 4/3;
             }
             .hero-visual .main-media {
                 max-height: 240px;
@@ -1333,7 +1412,7 @@
                 gap: 0.6rem;
             }
             .hero-bike-accent img {
-                max-width: 120px;
+                max-width: 100px;
             }
             .hero-bike-accent span {
                 font-size: 0.85rem;
@@ -1436,12 +1515,12 @@
                 max-width: 200px;
             }
             .hero {
+                padding: 1.2rem;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
-                padding: 1.2rem;
             }
-            .hero-content {
+            .hero-text {
                 width: 100%;
             }
             .hero-visual {
@@ -1454,6 +1533,9 @@
                 margin-left: auto;
                 margin-right: auto;
             }
+            .hero-logo .logo-img {
+                max-width: 180px;
+            }
         }
     </style>
 </head>
@@ -1461,42 +1543,24 @@
     <div class="landing">
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  HERO — RED BACKGROUND                       -->
+        <!--  HERO                                        -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="hero">
-            <div class="hero-content">
-                <!-- LOGO -->
-                <div class="logo-wrapper">
-                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
-                         alt="Hot Rod Pizza"
-                         class="logo-img animate-float"
-                         onerror="this.onerror=null; this.style.display='none';" />
-                </div>
-
-                <!-- FLASHING TEXT -->
+            <!-- LEFT COLUMN: Heading, Tagline, Description, CTAs, Bike -->
+            <div class="hero-text">
                 <div class="badge-top animate-flicker">🔥 ROLLING INTO EVENTS 🔥</div>
-
-                <!-- MAIN HEADING -->
                 <h1>HOT ROD<br /><span>PIZZA</span></h1>
-
-                <!-- TAGLINE -->
                 <div class="hero-tagline">
                     <i class="fas fa-fire"></i> REVVING UP FLAVOR AT FAIRS, FESTIVALS, AND EVENTS!
                 </div>
-
-                <!-- DESCRIPTION -->
                 <div class="hero-desc">
                     Wood‑fired pizzas, gourmet hot dogs, and tasty treats — served fresh off our custom trailer. Fast, fun, and flavorful.
                 </div>
-
-                <!-- CTAs -->
                 <div class="cta-group">
                     <a href="https://wa.me/13852228100?text=Hi!%20I'd%20like%20to%20book%20Hot%20Rod%20Pizza%20for%20an%20event" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> BOOK OUR TRAILER</a>
                     <a href="#menu" class="btn-secondary"><i class="fas fa-utensils"></i> VIEW OUR MENU</a>
                     <a href="https://wa.me/13852228100?text=Hi!%20I%20have%20a%20question%20about%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> CHAT WITH US</a>
                 </div>
-
-                <!-- BIKE ACCENT -->
                 <div class="hero-bike-accent">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Bike.png"
                          alt="Hot Rod Bike"
@@ -1505,7 +1569,15 @@
                 </div>
             </div>
 
-            <!-- HERO VISUAL — VIDEO -->
+            <!-- RIGHT COLUMN TOP: Logo -->
+            <div class="hero-logo animate-float">
+                <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png"
+                     alt="Hot Rod Pizza"
+                     class="logo-img"
+                     onerror="this.onerror=null; this.style.display='none';" />
+            </div>
+
+            <!-- RIGHT COLUMN BOTTOM: Video -->
             <div class="hero-visual animate-float-slow">
                 <div class="main-media">
                     <video autoplay muted loop playsinline poster="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Gemini_Generated_Image_fuahzofuahzofuah.png">
@@ -1520,7 +1592,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  ABOUT US ──────────────────────────────────── -->
+        <!--  ABOUT US                                    -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-black" id="about">
             <div class="about-grid">
@@ -1557,7 +1629,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  SHOWCASE ──────────────────────────────────── -->
+        <!--  SHOWCASE — ALL 4 IMAGES EQUAL ON MOBILE     -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-bg" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-white);">📸 In <span style="color:var(--brand-yellow);">Action</span></div>
@@ -1599,7 +1671,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  FIND US AROUND ────────────────────────────── -->
+        <!--  FIND US AROUND                              -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-black" style="border-top-color: var(--brand-yellow);">
             <div class="section-title">Find Us <span>Around</span></div>
@@ -1637,7 +1709,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  MENU ──────────────────────────────────────── -->
+        <!--  MENU                                       -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-dark" id="menu" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-yellow);">🔥 Menu <span style="color:var(--brand-white);">Highlights</span></div>
@@ -1699,7 +1771,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  BOOKING FORM ──────────────────────────────── -->
+        <!--  BOOKING FORM                                -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-black" id="booking-form" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-yellow);">📋 Book Us for Your <span style="color:var(--brand-white);">Next Event!</span></div>
@@ -1782,7 +1854,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  QR CODE ───────────────────────────────────── -->
+        <!--  QR CODE                                    -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-bg" style="border-top-color: var(--brand-yellow);">
             <div class="qr-section">
@@ -1804,7 +1876,7 @@
         </div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  SOCIAL & FOOTER ────────────────────────────── -->
+        <!--  SOCIAL & FOOTER                             -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="social-footer">
             <h3><i class="fas fa-hashtag"></i> Follow the Roll</h3>
