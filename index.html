@@ -1093,7 +1093,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2rem;
-            align-items: center;
+            align-items: stretch;
         }
 
         .party-image {
@@ -1103,6 +1103,9 @@
             box-shadow: 8px 8px 0 var(--brand-red-dark);
             transition: transform 0.3s ease;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .party-image:hover {
@@ -1111,9 +1114,16 @@
 
         .party-image img {
             width: 100%;
-            max-height: 400px;
-            object-fit: cover;
+            height: auto;
             display: block;
+            object-fit: contain;
+            max-height: 600px;
+        }
+
+        .party-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .party-content h3 {
@@ -1409,6 +1419,9 @@
             .party-features {
                 grid-template-columns: 1fr 1fr;
             }
+            .party-image img {
+                max-height: 500px;
+            }
             .hero h1 {
                 font-size: 3.5rem;
             }
@@ -1449,9 +1462,6 @@
             }
             .party-content h3 {
                 font-size: 1.8rem;
-            }
-            .party-image img {
-                max-height: 280px;
             }
 
             .showcase-grid {
@@ -1600,7 +1610,7 @@
                 font-size: 0.75rem;
             }
             .party-image img {
-                max-height: 200px;
+                max-height: 400px;
             }
             .party-content h3 {
                 font-size: 1.5rem;
@@ -1863,7 +1873,7 @@
         <div class="flame-divider"></div>
 
         <!-- ══════════════════════════════════════════════ -->
-        <!--  KIDS BIRTHDAY PARTY SECTION (NEW)           -->
+        <!--  KIDS BIRTHDAY PARTY SECTION (UPDATED - FULL IMAGE) -->
         <!-- ══════════════════════════════════════════════ -->
         <div class="card card-red-dark" id="party" style="border-top-color: var(--brand-yellow);">
             <div class="section-title" style="color:var(--brand-yellow);">🎈 <span data-en="Kids Birthday Party" data-es="Fiesta de Cumpleaños Infantil">Kids Birthday Party</span></div>
@@ -1875,7 +1885,7 @@
                 <div class="party-image animate-glow">
                     <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Kids%20Birthday%20Party%20Brochure%20.png"
                          alt="Kids Birthday Party Brochure"
-                         onerror="this.onerror=null; this.src='https://placehold.co/600x400/1a1a1a/fbc02d?text=Kids+Party+Brochure'">
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x800/1a1a1a/fbc02d?text=Kids+Party+Brochure'">
                 </div>
                 <div class="party-content">
                     <h3 data-en="We Bring the Party to You!" data-es="¡Llevamos la Fiesta a Ti!">We Bring the Party to You!</h3>
