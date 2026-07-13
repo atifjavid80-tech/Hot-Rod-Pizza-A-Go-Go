@@ -7,7 +7,7 @@
     <meta name="description" content="Revving up flavor at fairs, festivals, and events! Hot Rod Pizza serves wood‑fired pizzas and gourmet hot dogs from our custom trailer. Book us for your next gathering." />
     <link rel="canonical" href="https://hotrodpizzapc.com/" />
 
-    <!-- FAVICON - Hot Rod Pizza Logo in Browser Tab -->
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/LOGO.png">
 
     <!-- Open Graph -->
@@ -113,6 +113,12 @@
             50% { box-shadow: 0 0 40px rgba(251, 192, 45, 0.2); }
         }
 
+        @keyframes bounce-in {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
         .animate-flicker {
             animation: flicker 0.15s ease-in-out infinite;
         }
@@ -124,6 +130,9 @@
         }
         .animate-glow {
             animation: glow-pulse 3s ease-in-out infinite;
+        }
+        .animate-bounce {
+            animation: bounce-in 0.8s ease-out forwards;
         }
 
         /* ───────── FLAME DIVIDER ───────── */
@@ -1079,6 +1088,96 @@
             color: var(--brand-yellow);
         }
 
+        /* ───────── KIDS BIRTHDAY PARTY SECTION ───────── */
+        .party-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .party-image {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 4px solid var(--brand-yellow);
+            box-shadow: 8px 8px 0 var(--brand-red-dark);
+            transition: transform 0.3s ease;
+            background: #000;
+        }
+
+        .party-image:hover {
+            transform: scale(1.01);
+        }
+
+        .party-image img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .party-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--brand-yellow);
+            font-family: 'Bangers', cursive;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0 var(--brand-red-dark);
+        }
+
+        .party-content .party-subtitle {
+            font-size: 1.1rem;
+            color: #f5e2b0;
+            margin-bottom: 1rem;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+
+        .party-content p {
+            color: #ddd;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .party-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+
+        .party-feature {
+            background: rgba(255,255,255,0.04);
+            padding: 0.8rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .party-feature:hover {
+            border-color: var(--brand-yellow);
+            transform: translateY(-3px);
+        }
+
+        .party-feature i {
+            font-size: 1.8rem;
+            color: var(--brand-yellow);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .party-feature span {
+            font-size: 0.85rem;
+            color: #eee;
+            font-family: 'Bangers', cursive;
+            letter-spacing: 0.5px;
+        }
+
+        .party-cta {
+            margin-top: 1.2rem;
+        }
+
         /* ───────── BOOKING FORM ───────── */
         .form-grid {
             display: grid;
@@ -1304,6 +1403,12 @@
             .about-grid {
                 grid-template-columns: 1fr;
             }
+            .party-grid {
+                grid-template-columns: 1fr;
+            }
+            .party-features {
+                grid-template-columns: 1fr 1fr;
+            }
             .hero h1 {
                 font-size: 3.5rem;
             }
@@ -1341,6 +1446,12 @@
             }
             .hero-bike-accent span {
                 font-size: 1.1rem;
+            }
+            .party-content h3 {
+                font-size: 1.8rem;
+            }
+            .party-image img {
+                max-height: 280px;
             }
 
             .showcase-grid {
@@ -1471,6 +1582,28 @@
             }
             .about-image img {
                 max-height: 180px;
+            }
+            .party-grid {
+                grid-template-columns: 1fr;
+            }
+            .party-features {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+            .party-feature {
+                padding: 0.5rem;
+            }
+            .party-feature i {
+                font-size: 1.4rem;
+            }
+            .party-feature span {
+                font-size: 0.75rem;
+            }
+            .party-image img {
+                max-height: 200px;
+            }
+            .party-content h3 {
+                font-size: 1.5rem;
             }
             .badge-top {
                 font-size: 0.75rem;
@@ -1723,6 +1856,61 @@
                 <a href="https://wa.me/13852228100?text=Hi!%20I%20want%20to%20book%20Hot%20Rod%20Pizza%20for%20my%20event" class="btn-wa" target="_blank">
                     <i class="fab fa-whatsapp"></i> <span data-en="BOOK NOW ON WHATSAPP" data-es="RESERVA AHORA EN WHATSAPP">BOOK NOW ON WHATSAPP</span>
                 </a>
+            </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="flame-divider"></div>
+
+        <!-- ══════════════════════════════════════════════ -->
+        <!--  KIDS BIRTHDAY PARTY SECTION (NEW)           -->
+        <!-- ══════════════════════════════════════════════ -->
+        <div class="card card-red-dark" id="party" style="border-top-color: var(--brand-yellow);">
+            <div class="section-title" style="color:var(--brand-yellow);">🎈 <span data-en="Kids Birthday Party" data-es="Fiesta de Cumpleaños Infantil">Kids Birthday Party</span></div>
+            <div class="section-sub" style="color:#f5e2b0;" data-en="The coolest pizza party on wheels!" data-es="¡La fiesta de pizza más genial sobre ruedas!">
+                The coolest pizza party on wheels!
+            </div>
+
+            <div class="party-grid">
+                <div class="party-image animate-glow">
+                    <img src="https://raw.githubusercontent.com/atifjavid80-tech/Hot-Rod-Pizza-A-Go-Go/refs/heads/main/Kids%20Birthday%20Party%20Brochure%20.png"
+                         alt="Kids Birthday Party Brochure"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x400/1a1a1a/fbc02d?text=Kids+Party+Brochure'">
+                </div>
+                <div class="party-content">
+                    <h3 data-en="We Bring the Party to You!" data-es="¡Llevamos la Fiesta a Ti!">We Bring the Party to You!</h3>
+                    <div class="party-subtitle" data-en="Fun &amp; Delicious Food • Perfect for All Ages" data-es="Comida Divertida y Deliciosa • Perfecto para Todas las Edades">
+                        Fun &amp; Delicious Food • Perfect for All Ages
+                    </div>
+                    <p data-en="Hot Rod Pizza is a mobile food sensation serving up delicious pizzas and classic hot dogs from our custom trike trailer. We're all about fast, fun, and flavorful." data-es="Hot Rod Pizza es una sensación de comida móvil que sirve deliciosas pizzas y perros calientes clásicos desde nuestro remolque personalizado. Somos rápidos, divertidos y llenos de sabor.">
+                        Hot Rod Pizza is a mobile food sensation serving up delicious pizzas and classic hot dogs from our custom trike trailer. We're all about fast, fun, and flavorful.
+                    </p>
+
+                    <div class="party-features">
+                        <div class="party-feature">
+                            <i class="fas fa-pizza-slice"></i>
+                            <span data-en="Hassle-Free &amp; Exciting" data-es="Sin complicaciones y emocionante">Hassle-Free &amp; Exciting</span>
+                        </div>
+                        <div class="party-feature">
+                            <i class="fas fa-star"></i>
+                            <span data-en="Memorable Celebrations" data-es="Celebraciones memorables">Memorable Celebrations</span>
+                        </div>
+                        <div class="party-feature">
+                            <i class="fas fa-fire"></i>
+                            <span data-en="Wood-Fired Pizzas" data-es="Pizzas al Horno de Leña">Wood-Fired Pizzas</span>
+                        </div>
+                        <div class="party-feature">
+                            <i class="fas fa-oven"></i>
+                            <span data-en="Gozney Dome Gen 2" data-es="Gozney Dome Gen 2">Gozney Dome Gen 2</span>
+                        </div>
+                    </div>
+
+                    <div class="party-cta">
+                        <a href="https://wa.me/13852228100?text=Hi!%20I%20want%20to%20book%20a%20Kids%20Birthday%20Party%20with%20Hot%20Rod%20Pizza" class="btn-wa" target="_blank">
+                            <i class="fab fa-whatsapp"></i> <span data-en="BOOK YOUR PARTY TODAY!" data-es="¡RESERVA TU FIESTA HOY!">BOOK YOUR PARTY TODAY!</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
 
